@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories That Help Kids Grow | Launch Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a1628;
+            --bg-secondary: #111d32;
+            --bg-card: #162034;
+            --bg-card-hover: #1a2740;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-green: #10b981;
+            --accent-green-glow: rgba(16, 185, 129, 0.3);
+            --accent-blue: #3b82f6;
+            --accent-blue-glow: rgba(59, 130, 246, 0.3);
+            --accent-purple: #8b5cf6;
+            --accent-purple-glow: rgba(139, 92, 246, 0.3);
+            --accent-orange: #f59e0b;
+            --accent-orange-glow: rgba(245, 158, 11, 0.3);
+            --accent-pink: #ec4899;
+            --accent-pink-glow: rgba(236, 72, 153, 0.3);
+            --accent-red: #ef4444;
+            --border: rgba(148, 163, 184, 0.1);
+            --border-hover: rgba(148, 163, 184, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .mono { font-family: 'Space Mono', monospace; }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .brand-text h1 {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .header-stat {
+            text-align: center;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .header-stat-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        .header-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .sync-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        .sync-dot.syncing { background: var(--accent-orange); }
+        .sync-dot.error { background: var(--accent-red); animation: none; }
+        .sync-dot.local { background: var(--text-muted); animation: none; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0 32px;
+            overflow-x: auto;
+        }
+
+        .nav-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-tab {
+            padding: 16px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-secondary);
+            background: var(--bg-card);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-green);
+            border-bottom-color: var(--accent-green);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-title-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* Progress Bars */
+        .progress-container {
+            margin-bottom: 24px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .progress-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        /* Phase Cards */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .phase-card.complete {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 30px var(--accent-green-glow);
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .phase-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .phase-status.pending { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .phase-status.in-progress { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+        .phase-status.complete { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+
+        .phase-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .phase-time {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .phase-progress {
+            height: 6px;
+            background: var(--bg-primary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .phase-progress-fill {
+            height: 100%;
+            background: var(--accent-green);
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .phase-tasks {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Task List */
+        .task-list {
+            list-style: none;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .task-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-hover);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            margin-top: 2px;
+        }
+
+        .task-checkbox:hover {
+            border-color: var(--accent-green);
+        }
+
+        .task-checkbox.checked {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .task-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .task-item.completed .task-title {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .task-time {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .task-notes {
+            color: var(--text-secondary);
+        }
+
+        /* Story Cards */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .story-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .story-number {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .story-priority {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .story-priority.high { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .story-priority.medium { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .story-priority.low { background: rgba(100, 116, 139, 0.2); color: var(--text-muted); }
+
+        .story-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .story-character {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .character-type {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .character-type.object { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+        .character-type.human { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .character-type.animal { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+
+        .story-skill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .story-skill-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .story-skill-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        .story-status-select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .story-status-select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        /* Character Bible */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .character-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .character-header {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .character-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .character-avatar.object { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); }
+        .character-avatar.human { background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); }
+        .character-avatar.animal { background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink)); }
+
+        .character-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .character-type-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .character-section {
+            margin-bottom: 16px;
+        }
+
+        .character-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .character-section-content {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .character-phrase {
+            background: var(--bg-primary);
+            padding: 12px;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--accent-green);
+            border-left: 3px solid var(--accent-green);
+        }
+
+        /* Playlist Section */
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .playlist-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .playlist-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .playlist-info {
+            flex: 1;
+        }
+
+        .playlist-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .playlist-casel {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .playlist-count {
+            text-align: center;
+        }
+
+        .playlist-count-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .playlist-count-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Channel Copy */
+        .copy-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .copy-header {
+            padding: 16px 20px;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .copy-btn {
+            padding: 6px 12px;
+            background: var(--accent-green);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .copy-btn.copied {
+            background: var(--accent-purple);
+        }
+
+        .copy-content {
+            padding: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header { padding: 16px; }
+            .header-content { flex-direction: column; align-items: flex-start; }
+            .header-stats { width: 100%; justify-content: space-between; }
+            .nav { padding: 0 16px; }
+            .main { padding: 16px; }
+            .phase-grid { grid-template-columns: 1fr; }
+            .story-grid { grid-template-columns: 1fr; }
+            .character-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-icon">🌱</div>
+                <div class="brand-text">
+                    <h1>Stories That Help Kids Grow</h1>
+                    <p>YouTube Launch Command Center</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-value" id="total-progress">0%</div>
+                    <div class="header-stat-label">Complete</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="tasks-done">0/43</div>
+                    <div class="header-stat-label">Tasks Done</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="stories-ready">0/10</div>
+                    <div class="header-stat-label">Stories Ready</div>
+                </div>
+                <div class="sync-status">
+                    <div class="sync-dot" id="sync-dot"></div>
+                    <span id="sync-text">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-tab active" data-tab="dashboard">📊 Dashboard</div>
+            <div class="nav-tab" data-tab="checklist">✅ Launch Checklist</div>
+            <div class="nav-tab" data-tab="stories">📚 Story Pipeline</div>
+            <div class="nav-tab" data-tab="characters">🎭 Character Bible</div>
+            <div class="nav-tab" data-tab="playlists">📁 Playlists</div>
+            <div class="nav-tab" data-tab="copy">📝 Channel Copy</div>
+            <div class="nav-tab" data-tab="sel">🧠 SEL Framework</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Dashboard Tab -->
+        <div class="tab-content active" id="tab-dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value" id="stat-progress">0%</div>
+                    <div class="stat-label">Launch Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="stat-hours">16h</div>
+                    <div class="stat-label">Est. Remaining</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📹</div>
+                    <div class="stat-value" id="stat-videos">0/3</div>
+                    <div class="stat-label">Videos Ready</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📖</div>
+                    <div class="stat-value" id="stat-stories">3/10</div>
+                    <div class="stat-label">Stories Planned</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));">🚀</div>
+                        Overall Launch Progress
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="progress-label">Total Completion</span>
+                        <span class="progress-value" id="overall-progress-value">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overall-progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">📋 Launch Phases</h2>
+            <div class="phase-grid" id="phase-grid">
+                <!-- Phases will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Checklist Tab -->
+        <div class="tab-content" id="tab-checklist">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));">✅</div>
+                        Launch Checklist
+                    </div>
+                    <div style="font-size: 14px; color: var(--text-muted);">
+                        <span id="checklist-progress">0/43</span> tasks complete
+                    </div>
+                </div>
+                <div id="checklist-container">
+                    <!-- Tasks will be rendered here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Stories Tab -->
+        <div class="tab-content" id="tab-stories">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));">📚</div>
+                        Story Pipeline
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 16px;">Your next 10 stories mapped to SEL skills. Update status as you progress.</p>
+            </div>
+            <div class="story-grid" id="story-grid">
+                <!-- Stories will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Characters Tab -->
+        <div class="tab-content" id="tab-characters">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));">🎭</div>
+                        Character Bible
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);">Your character profiles - visual descriptions, personality traits, voice notes, and signature phrases.</p>
+            </div>
+            <div class="character-grid" id="character-grid">
+                <!-- Characters will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Playlists Tab -->
+        <div class="tab-content" id="tab-playlists">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));">📁</div>
+                        Playlist Structure
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);">SEL-organized playlists mapped to CASEL competencies. Parents search by problem, not character.</p>
+            </div>
+            <div class="playlist-grid" id="playlist-grid">
+                <!-- Playlists will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Copy Tab -->
+        <div class="tab-content" id="tab-copy">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));">📝</div>
+                        Ready-to-Use Channel Copy
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);">Click "Copy" to copy any section to your clipboard.</p>
+            </div>
+            <div id="copy-container">
+                <!-- Copy sections will be rendered here -->
+            </div>
+        </div>
+
+        <!-- SEL Framework Tab -->
+        <div class="tab-content" id="tab-sel">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));">🧠</div>
+                        CASEL SEL Framework
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);">The 5 CASEL competencies that structure your content. Use this to plan new stories.</p>
+            </div>
+            <div id="sel-container">
+                <!-- SEL framework will be rendered here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ============================================
+        // CLOUD SYNC CONFIGURATION (JSONBin)
+        // ============================================
+        // To set up:
+        // 1. Go to jsonbin.io and create a free account
+        // 2. Get your Master Key from the API Keys section
+        // 3. Replace 'YOUR_API_KEY_HERE' below with your actual key
+        
+        const JSONBIN_KEY = '$2a$10$YOUR_API_KEY_HERE'; // Replace with your JSONBin Master Key
+        const STORAGE_KEY = 'sthkg-data';
+        const BIN_ID_KEY = 'sthkg-bin-id';
+        
+        let binId = localStorage.getItem(BIN_ID_KEY);
+        let syncStatus = 'connecting';
+        let syncTimeout = null;
+        let lastSyncTime = null;
+
+        // ============================================
+        // DATA STRUCTURE
+        // ============================================
+        const defaultData = {
+            tasks: {},
+            stories: {},
+            lastUpdated: new Date().toISOString()
+        };
+
+        let appData = { ...defaultData };
+
+        // ============================================
+        // PHASE & TASK DATA
+        // ============================================
+        const phases = [
+            {
+                id: 'phase1',
+                number: 1,
+                name: 'Brand Setup',
+                time: '2 hours',
+                tasks: [
+                    { id: 't1', title: 'Check domain availability: storiesthathelpkidsgrow.com', time: '5 min', notes: 'Use GoDaddy or Namecheap' },
+                    { id: 't2', title: 'Purchase domain (.com and .co backup)', time: '10 min', notes: '~$25/year' },
+                    { id: 't3', title: 'Create YouTube channel: Stories That Help Kids Grow', time: '15 min', notes: 'Use existing Google account' },
+                    { id: 't4', title: 'Secure handle: @StoriesThatHelpKidsGrow', time: '5 min', notes: 'Check availability first' },
+                    { id: 't5', title: 'Secure Instagram: @storiesthathelpkidsgrow', time: '5 min', notes: '20 chars - fits limit' },
+                    { id: 't6', title: 'Secure TikTok: @StoriesHelpKidsGrow', time: '5 min', notes: 'Abbreviated for 24 char limit' },
+                    { id: 't7', title: 'Write channel description', time: '20 min', notes: 'SEO optimized - see Channel Copy tab' },
+                    { id: 't8', title: 'Create channel banner (Canva)', time: '30 min', notes: '1546 x 423 pixels' },
+                    { id: 't9', title: 'Create channel profile picture', time: '15 min', notes: '800 x 800 pixels' }
+                ]
+            },
+            {
+                id: 'phase2',
+                number: 2,
+                name: 'Content Prep',
+                time: '3 hours',
+                tasks: [
+                    { id: 't10', title: 'Finalize Captain Pillow script', time: '30 min', notes: 'Already written - review' },
+                    { id: 't11', title: 'Finalize Max Means To script', time: '30 min', notes: 'Already written - review' },
+                    { id: 't12', title: 'Finalize Star Train script (calming down)', time: '45 min', notes: 'Draft or finalize' },
+                    { id: 't13', title: 'Create thumbnail template in Canva', time: '30 min', notes: '1280 x 720 pixels' },
+                    { id: 't14', title: 'Design 3 thumbnails (one per story)', time: '45 min', notes: 'Bright, clear, character-focused' },
+                    { id: 't15', title: 'Write video titles (SEO optimized)', time: '15 min', notes: 'Format: [Character] | [Skill] | Stories That Help Kids Grow' },
+                    { id: 't16', title: 'Write video descriptions (3)', time: '30 min', notes: 'Include keywords + timestamps' }
+                ]
+            },
+            {
+                id: 'phase3',
+                number: 3,
+                name: 'Filming Setup',
+                time: '2 hours',
+                tasks: [
+                    { id: 't17', title: 'Choose filming location (consistent background)', time: '15 min', notes: 'Neutral, warm, uncluttered' },
+                    { id: 't18', title: 'Set up ring light or natural lighting', time: '15 min', notes: 'Face the light source' },
+                    { id: 't19', title: 'Test camera angle (eye level, close enough)', time: '10 min', notes: 'Kids need to see your face clearly' },
+                    { id: 't20', title: 'Test audio (external mic if possible)', time: '15 min', notes: 'Lavalier or shotgun mic ideal' },
+                    { id: 't21', title: 'Create book holder/stand setup', time: '15 min', notes: 'Hands-free page turning helps' },
+                    { id: 't22', title: 'Do 1-minute test recording', time: '10 min', notes: 'Check audio + video quality' },
+                    { id: 't23', title: 'Review test and adjust', time: '15 min', notes: 'Fix any issues before full filming' }
+                ]
+            },
+            {
+                id: 'phase4',
+                number: 4,
+                name: 'Filming',
+                time: '3 hours',
+                tasks: [
+                    { id: 't24', title: 'Film Captain Pillow (full read + intro/outro)', time: '45 min', notes: 'Multiple takes if needed' },
+                    { id: 't25', title: 'Film Max Means To', time: '45 min', notes: 'Stay consistent with energy' },
+                    { id: 't26', title: 'Film Star Train', time: '45 min', notes: 'Calming energy for this one' },
+                    { id: 't27', title: 'Film channel trailer (30-60 seconds)', time: '30 min', notes: 'Introduce yourself + mission' },
+                    { id: 't28', title: 'Review all footage for quality', time: '15 min', notes: 'Re-film any issues' }
+                ]
+            },
+            {
+                id: 'phase5',
+                number: 5,
+                name: 'Editing & Post',
+                time: '4 hours',
+                tasks: [
+                    { id: 't29', title: 'Edit Captain Pillow video', time: '45 min', notes: 'Simple cuts, add title cards' },
+                    { id: 't30', title: 'Edit Max Means To video', time: '45 min', notes: 'Consistent style' },
+                    { id: 't31', title: 'Edit Star Train video', time: '45 min', notes: 'Calming pacing' },
+                    { id: 't32', title: 'Edit channel trailer', time: '30 min', notes: 'Punchy, clear, inviting' },
+                    { id: 't33', title: 'Add intro/outro graphics (optional)', time: '30 min', notes: 'Can add later if time-pressed' },
+                    { id: 't34', title: 'Export all videos (1080p minimum)', time: '30 min', notes: 'MP4 format' },
+                    { id: 't35', title: 'Create playlists on YouTube', time: '15 min', notes: 'See Playlists tab for structure' }
+                ]
+            },
+            {
+                id: 'phase6',
+                number: 6,
+                name: 'Launch',
+                time: '2 hours',
+                tasks: [
+                    { id: 't36', title: 'Upload channel trailer', time: '15 min', notes: 'Set as channel trailer' },
+                    { id: 't37', title: 'Upload Captain Pillow video', time: '15 min', notes: 'Add to appropriate playlists' },
+                    { id: 't38', title: 'Upload Max Means To video', time: '15 min', notes: 'Add to appropriate playlists' },
+                    { id: 't39', title: 'Upload Star Train video', time: '15 min', notes: 'Add to appropriate playlists' },
+                    { id: 't40', title: 'Add end screens to all videos', time: '20 min', notes: 'Subscribe + next video' },
+                    { id: 't41', title: 'Add cards to all videos', time: '15 min', notes: 'Link to related content' },
+                    { id: 't42', title: 'Cross-post announcement to personal LinkedIn', time: '10 min', notes: 'Share your journey' },
+                    { id: 't43', title: 'Cross-post to personal Instagram', time: '10 min', notes: 'Story + feed post' }
+                ]
+            }
+        ];
+
+        // ============================================
+        // STORY DATA
+        // ============================================
+        const stories = [
+            { id: 's1', number: 1, title: 'Captain Pillow and the Wobbly Tower', character: 'Captain Pillow', type: 'object', skill: 'Trying Again / Persistence', casel: 'Self-Management', lesson: 'When something falls, we can try again. Failing is part of learning.', playlist: 'Stories About Trying Again', priority: 'high', defaultStatus: 'ready' },
+            { id: 's2', number: 2, title: 'Max Means To', character: 'Max', type: 'human', skill: 'Self-Regulation / Impulse Control', casel: 'Self-Management', lesson: 'Our brains sometimes act before we think. We can catch ourselves and try again.', playlist: 'Stories About Self-Regulation', priority: 'high', defaultStatus: 'ready' },
+            { id: 's3', number: 3, title: 'Star Train to Sleepy Station', character: 'Star Train', type: 'object', skill: 'Calming Down / Relaxation', casel: 'Self-Management', lesson: 'We can take slow breaths and let our bodies rest, like a train slowing to a station.', playlist: 'Stories About Calming Down', priority: 'high', defaultStatus: 'ready' },
+            { id: 's4', number: 4, title: 'Turtle Takes His Time', character: 'Turtle', type: 'animal', skill: 'Patience / Waiting', casel: 'Self-Management', lesson: 'Good things take time. We can wait without rushing.', playlist: 'Stories About Patience', priority: 'medium', defaultStatus: 'script' },
+            { id: 's5', number: 5, title: "Bunny's Big Feelings Basket", character: 'Bunny', type: 'animal', skill: 'Emotional Awareness', casel: 'Self-Awareness', lesson: 'All feelings are okay. We can notice them and name them.', playlist: 'Stories About Big Feelings', priority: 'medium', defaultStatus: 'script' },
+            { id: 's6', number: 6, title: 'The Sharing Squirrels', character: 'Squirrel Siblings', type: 'animal', skill: 'Sharing / Taking Turns', casel: 'Relationship Skills', lesson: 'Sharing can feel hard, but it makes playing together more fun.', playlist: 'Stories About Sharing', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's7', number: 7, title: 'Bear Learns to Breathe', character: 'Bear', type: 'animal', skill: 'Anger Management / Calming', casel: 'Self-Management', lesson: 'When we feel angry, we can stop and breathe before we act.', playlist: 'Stories About Calming Down', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's8', number: 8, title: 'The Kindness Caterpillar', character: 'Caterpillar', type: 'animal', skill: 'Kindness / Helping Others', casel: 'Social Awareness', lesson: 'Small acts of kindness make big differences for others.', playlist: 'Stories About Kindness', priority: 'low', defaultStatus: 'idea' },
+            { id: 's9', number: 9, title: 'Fox Finds a Friend', character: 'Fox', type: 'animal', skill: 'Making Friends / Social Skills', casel: 'Relationship Skills', lesson: 'Making friends starts with being friendly and showing interest.', playlist: 'Stories About Making Friends', priority: 'low', defaultStatus: 'idea' },
+            { id: 's10', number: 10, title: "Owl's Worry Cloud", character: 'Owl', type: 'animal', skill: 'Worry / Anxiety Management', casel: 'Self-Management', lesson: 'Worries are like clouds - they come and go. We can let them float by.', playlist: 'Stories About Big Feelings', priority: 'low', defaultStatus: 'idea' }
+        ];
+
+        // ============================================
+        // CHARACTER DATA
+        // ============================================
+        const characters = [
+            { name: 'Captain Pillow', type: 'object', emoji: '🛏️', visual: 'Soft, rectangular pillow with a captain\'s hat. Friendly button eyes. Maybe small embroidered anchor.', personality: 'Determined, optimistic, doesn\'t give up easily. Gets knocked down but always gets back up.', voice: 'Warm, encouraging, slightly adventurous', struggle: 'Building things that keep falling down. Trying hard but failing.', phrase: '"Let\'s try again!" or "One more time!"', stories: 'Captain Pillow and the Wobbly Tower (+ future sequels)' },
+            { name: 'Max', type: 'human', emoji: '👦', visual: 'Young boy, 4-5 years old. Expressive face. Casual clothes. Relatable "every kid" look.', personality: 'Well-meaning, energetic, sometimes acts before thinking. Genuinely wants to do the right thing.', voice: 'Earnest, slightly hurried, apologetic when he realizes mistakes', struggle: 'Brain moves faster than his intentions. Does things he didn\'t mean to do.', phrase: '"I meant to..." or "My brain bounced!"', stories: 'Max Means To (+ future sequels)' },
+            { name: 'Star Train', type: 'object', emoji: '🚂', visual: 'Gentle, glowing train with soft star shapes. Moves slowly. Calming colors (blues, purples, soft golds).', personality: 'Peaceful, patient, reassuring. Never in a hurry. Helps others slow down.', voice: 'Slow, melodic, almost whisper-like. Very calming.', struggle: 'Helping others (and self) slow down when the world feels too fast.', phrase: '"All aboard for calm..." or "Slow and steady to sleepy station"', stories: 'Star Train to Sleepy Station (+ future sequels)' },
+            { name: 'Turtle', type: 'animal', emoji: '🐢', visual: 'Friendly turtle with expressive eyes. Maybe a small hat or accessory. Not too cartoonish.', personality: 'Patient, wise for his age, comfortable taking things slow. Doesn\'t rush.', voice: 'Thoughtful, measured, gentle', struggle: 'Waiting when others want to rush. Teaching patience by example.', phrase: '"Good things take time" or "Slow is okay"', stories: 'Turtle Takes His Time (planned)' },
+            { name: 'Bunny', type: 'animal', emoji: '🐰', visual: 'Soft, fluffy bunny. Big expressive ears that show emotion. Warm colors.', personality: 'Sensitive, emotionally aware, helps others name feelings. Sometimes overwhelmed by big feelings.', voice: 'Gentle, curious, validating', struggle: 'Having big feelings and learning they\'re all okay.', phrase: '"That\'s a big feeling!" or "All feelings are welcome here"', stories: 'Bunny\'s Big Feelings Basket (planned)' },
+            { name: 'Bear', type: 'animal', emoji: '🐻', visual: 'Strong but soft bear. Not scary. Warm brown tones. Expressive eyebrows.', personality: 'Gets frustrated easily, learning to manage anger. Good heart, just big emotions.', voice: 'Initially grumbly, then softens. Deep voice but gentle.', struggle: 'Anger that feels too big. Learning to pause before acting.', phrase: '"I need to stop and breathe" or "My calm is coming back"', stories: 'Bear Learns to Breathe (planned)' },
+            { name: 'Owl', type: 'animal', emoji: '🦉', visual: 'Wise-looking owl with slightly worried expression. Soft feathers. Night-time colors.', personality: 'Thoughtful, sometimes worries too much. Uses wisdom to work through worries.', voice: 'Contemplative, slightly anxious at first, then calming', struggle: 'Worries that keep circling. Learning to let them pass.', phrase: '"Worries come and worries go" or "This cloud will float away"', stories: 'Owl\'s Worry Cloud (planned)' }
+        ];
+
+        // ============================================
+        // PLAYLIST DATA
+        // ============================================
+        const playlists = [
+            { name: 'Stories About Trying Again', casel: 'Self-Management', icon: '🔄', color: 'var(--accent-green)', keywords: 'trying again, not giving up, persistence for kids, resilience stories' },
+            { name: 'Stories About Self-Regulation', casel: 'Self-Management', icon: '🧠', color: 'var(--accent-blue)', keywords: 'self-regulation, impulse control, managing emotions, calming strategies' },
+            { name: 'Stories About Calming Down', casel: 'Self-Management', icon: '🧘', color: 'var(--accent-purple)', keywords: 'calming down, relaxation for kids, deep breathing, anger management kids' },
+            { name: 'Stories About Patience', casel: 'Self-Management', icon: '⏳', color: 'var(--accent-orange)', keywords: 'patience for kids, waiting stories, delayed gratification' },
+            { name: 'Stories About Big Feelings', casel: 'Self-Awareness', icon: '💗', color: 'var(--accent-pink)', keywords: 'big feelings, emotions for kids, feeling words, emotional vocabulary' },
+            { name: 'Stories About Sharing', casel: 'Relationship Skills', icon: '🤝', color: 'var(--accent-green)', keywords: 'sharing stories, taking turns, cooperation for kids' },
+            { name: 'Stories About Kindness', casel: 'Social Awareness', icon: '💛', color: 'var(--accent-orange)', keywords: 'kindness for kids, empathy stories, being kind, helping others' },
+            { name: 'Stories About Making Friends', casel: 'Relationship Skills', icon: '👫', color: 'var(--accent-blue)', keywords: 'making friends, friendship stories, social skills for kids' },
+            { name: 'Stories About Problem Solving', casel: 'Responsible Decision-Making', icon: '💡', color: 'var(--accent-purple)', keywords: 'problem solving for kids, thinking skills, making choices' },
+            { name: 'Stories About Being Brave', casel: 'Self-Management', icon: '🦁', color: 'var(--accent-orange)', keywords: 'being brave, overcoming fear, courage for kids, scary feelings' },
+            { name: 'Bedtime Stories', casel: 'Self-Management (Use-Case)', icon: '🌙', color: 'var(--accent-purple)', keywords: 'bedtime stories, calming stories, sleep stories for kids, relaxing' }
+        ];
+
+        // ============================================
+        // CHANNEL COPY DATA
+        // ============================================
+        const channelCopy = [
+            { title: 'Channel Name', content: 'Stories That Help Kids Grow' },
+            { title: 'Channel Handle', content: '@StoriesThatHelpKidsGrow' },
+            { title: 'Channel Tagline', content: 'Calm, brave stories for little hearts' },
+            { title: 'Channel Description', content: `Welcome to Stories That Help Kids Grow! 🌱
+
+I'm Stephen, and I read stories that help children develop important social and emotional skills - like trying again when things are hard, calming down when feelings get big, and being patient when waiting is tough.
+
+Each story is designed to:
+✨ Help kids understand their emotions
+✨ Build resilience and self-regulation
+✨ Create calm, connected moments with your child
+
+Perfect for ages 2-7. Great for bedtime, quiet time, or anytime your little one needs a moment to grow.
+
+New stories every week!
+
+Subscribe and hit the bell so you never miss a story. 🔔
+
+#StoriesThatHelpKidsGrow #SELforKids #ChildrensBooks #BedtimeStories #EmotionalIntelligence` },
+            { title: 'About Section', content: `Hi, I'm Stephen! 👋
+
+I'm a dad of three with a background in early childhood experience design. I spent years creating programming for thousands of families, and now I'm bringing that expertise to stories that help kids develop social-emotional skills.
+
+Every story here is rooted in child development research and designed to help your child:
+• Understand and manage their emotions
+• Build resilience when things are hard
+• Develop empathy and social skills
+• Create healthy habits for life
+
+I believe screen time can be meaningful time. These stories are made to watch together - pause, discuss, and grow.
+
+Questions? Ideas for stories? Drop a comment - I read them all!
+
+Connect with me:
+📱 @storiesthathelpkidsgrow (Instagram)
+
+With love and stories,
+Stephen` },
+            { title: 'Video Title Format', content: '[Character Name] | [SEL Skill] | Stories That Help Kids Grow' },
+            { title: 'Example Title 1', content: 'Captain Pillow | Trying Again | Stories That Help Kids Grow' },
+            { title: 'Example Title 2', content: 'Max Means To | Self-Regulation | Stories That Help Kids Grow' },
+            { title: 'Example Title 3', content: 'Star Train | Calming Down | Stories That Help Kids Grow' },
+            { title: 'Video Description Template', content: `[Brief story summary - 2 sentences]
+
+This story helps kids learn about [SEL skill] in a gentle, engaging way.
+
+📚 STORY DETAILS:
+• Skill Focus: [Trying Again / Self-Regulation / Calming Down / etc.]
+• Best for ages: 2-7
+• Read time: [X] minutes
+
+⏱️ TIMESTAMPS:
+0:00 - Intro
+[X:XX] - Story begins
+[X:XX] - Key moment
+[X:XX] - Ending
+
+🌱 MORE STORIES THAT HELP KIDS GROW:
+• [Playlist link]
+• [Related video link]
+
+👍 If this story helped your little one, please LIKE and SUBSCRIBE!
+
+#StoriesThatHelpKidsGrow #[SELSkill] #ChildrensBooks #SEL #BedtimeStories` }
+        ];
+
+        // ============================================
+        // SEL FRAMEWORK DATA
+        // ============================================
+        const selFramework = [
+            { name: 'Self-Awareness', color: 'var(--accent-blue)', definition: 'Recognizing one\'s emotions, thoughts, and values', skills: 'Identifying emotions, accurate self-perception, recognizing strengths, self-confidence, self-efficacy', stories: 'Bunny\'s Big Feelings Basket, Owl\'s Worry Cloud', keywords: 'feelings for kids, emotions vocabulary, understanding feelings, self-esteem kids' },
+            { name: 'Self-Management', color: 'var(--accent-green)', definition: 'Regulating emotions, thoughts, and behaviors', skills: 'Impulse control, stress management, self-discipline, goal-setting, organizational skills', stories: 'Max Means To, Captain Pillow, Star Train, Bear Learns to Breathe, Turtle Takes His Time', keywords: 'calming down, anger management kids, self-control, patience, trying again, not giving up' },
+            { name: 'Social Awareness', color: 'var(--accent-purple)', definition: 'Taking the perspective of others, showing empathy', skills: 'Perspective-taking, empathy, appreciating diversity, respect for others', stories: 'The Kindness Caterpillar, future empathy stories', keywords: 'kindness for kids, empathy stories, understanding others, being kind' },
+            { name: 'Relationship Skills', color: 'var(--accent-orange)', definition: 'Establishing positive relationships, working in teams', skills: 'Communication, social engagement, building relationships, teamwork, conflict resolution', stories: 'The Sharing Squirrels, Fox Finds a Friend', keywords: 'sharing, making friends, taking turns, cooperation, playing together' },
+            { name: 'Responsible Decision-Making', color: 'var(--accent-pink)', definition: 'Making constructive choices about behavior', skills: 'Problem identification, analyzing situations, solving problems, ethical responsibility', stories: 'Future problem-solving stories', keywords: 'making good choices, problem solving for kids, thinking before acting' }
+        ];
+
+        // ============================================
+        // CLOUD SYNC FUNCTIONS
+        // ============================================
+        async function createBin() {
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
+                syncStatus = 'local';
+                updateSyncIndicator();
+                return false;
+            }
+            try {
+                const response = await fetch('https://api.jsonbin.io/v3/b', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json', 
+                        'X-Master-Key': JSONBIN_KEY, 
+                        'X-Bin-Name': 'stories-that-help-kids-grow-data' 
+                    },
+                    body: JSON.stringify(appData)
+                });
+                if (!response.ok) throw new Error('Failed to create bin');
+                const result = await response.json();
+                binId = result.metadata.id;
+                localStorage.setItem(BIN_ID_KEY, binId);
+                syncStatus = 'synced';
+                lastSyncTime = new Date();
+                updateSyncIndicator();
+                return true;
+            } catch (err) { 
+                console.error('Create bin failed:', err); 
+                syncStatus = 'error';
+                updateSyncIndicator();
+                return false; 
+            }
+        }
+
+        async function loadFromCloud() {
+            const local = localStorage.getItem(STORAGE_KEY);
+            if (local) {
+                appData = { ...defaultData, ...JSON.parse(local) };
+            }
+            
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
+                syncStatus = 'local';
+                updateSyncIndicator();
+                return;
+            }
+
+            if (!binId) {
+                syncStatus = 'local';
+                updateSyncIndicator();
+                return;
+            }
+
+            syncStatus = 'syncing';
+            updateSyncIndicator();
+
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+                    headers: { 'X-Master-Key': JSONBIN_KEY }
+                });
+                if (!response.ok) throw new Error('Failed to load');
+                const result = await response.json();
+                const cloudData = result.record;
+                
+                if (cloudData && cloudData.lastUpdated) {
+                    const cloudTime = new Date(cloudData.lastUpdated);
+                    const localTime = appData.lastUpdated ? new Date(appData.lastUpdated) : new Date(0);
+                    
+                    if (cloudTime > localTime) {
+                        appData = { ...defaultData, ...cloudData };
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+                    }
+                }
+                
+                syncStatus = 'synced';
+                lastSyncTime = new Date();
+            } catch (err) {
+                console.error('Load from cloud failed:', err);
+                syncStatus = 'error';
+            }
+            updateSyncIndicator();
+        }
+
+        async function saveToCloud() {
+            appData.lastUpdated = new Date().toISOString();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
+                return;
+            }
+
+            if (!binId) {
+                await createBin();
+                return;
+            }
+
+            if (syncTimeout) clearTimeout(syncTimeout);
+            
+            syncTimeout = setTimeout(async () => {
+                syncStatus = 'syncing';
+                updateSyncIndicator();
+                
+                try {
+                    const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+                        method: 'PUT',
+                        headers: { 
+                            'Content-Type': 'application/json', 
+                            'X-Master-Key': JSONBIN_KEY 
+                        },
+                        body: JSON.stringify(appData)
+                    });
+                    if (!response.ok) throw new Error('Failed to save');
+                    syncStatus = 'synced';
+                    lastSyncTime = new Date();
+                } catch (err) {
+                    console.error('Save to cloud failed:', err);
+                    syncStatus = 'error';
+                }
+                updateSyncIndicator();
+            }, 1000);
+        }
+
+        function updateSyncIndicator() {
+            const dot = document.getElementById('sync-dot');
+            const text = document.getElementById('sync-text');
+            
+            dot.className = 'sync-dot';
+            
+            switch (syncStatus) {
+                case 'synced':
+                    dot.classList.add('synced');
+                    text.textContent = 'Synced to Cloud';
+                    break;
+                case 'syncing':
+                    dot.classList.add('syncing');
+                    text.textContent = 'Syncing...';
+                    break;
+                case 'error':
+                    dot.classList.add('error');
+                    text.textContent = 'Sync Error';
+                    break;
+                case 'local':
+                    dot.classList.add('local');
+                    text.textContent = 'Local Only';
+                    break;
+                default:
+                    text.textContent = 'Connecting...';
+            }
+        }
+
+        // ============================================
+        // RENDER FUNCTIONS
+        // ============================================
+        function renderPhases() {
+            const container = document.getElementById('phase-grid');
+            container.innerHTML = phases.map(phase => {
+                const completedTasks = phase.tasks.filter(t => appData.tasks[t.id]).length;
+                const totalTasks = phase.tasks.length;
+                const progress = Math.round((completedTasks / totalTasks) * 100);
+                const status = progress === 100 ? 'complete' : progress > 0 ? 'in-progress' : 'pending';
+                
+                return `
+                    <div class="phase-card ${progress === 100 ? 'complete' : ''}" onclick="scrollToPhase('${phase.id}')">
+                        <div class="phase-header">
+                            <span class="phase-number">Phase ${phase.number}</span>
+                            <span class="phase-status ${status}">${status.replace('-', ' ')}</span>
+                        </div>
+                        <div class="phase-title">${phase.name}</div>
+                        <div class="phase-time">⏱️ ${phase.time}</div>
+                        <div class="phase-progress">
+                            <div class="phase-progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                        <div class="phase-tasks">${completedTasks}/${totalTasks} tasks complete</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = phases.map(phase => `
+                <div id="${phase.id}" style="margin-bottom: 32px;">
+                    <div style="padding: 16px 20px; background: var(--bg-primary); border-radius: 12px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Phase ${phase.number}</div>
+                                <div style="font-size: 18px; font-weight: 700;">${phase.name}</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 14px; color: var(--accent-blue);">⏱️ ${phase.time}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="task-list">
+                        ${phase.tasks.map(task => {
+                            const isComplete = appData.tasks[task.id];
+                            return `
+                                <li class="task-item ${isComplete ? 'completed' : ''}">
+                                    <div class="task-checkbox ${isComplete ? 'checked' : ''}" onclick="toggleTask('${task.id}')"></div>
+                                    <div class="task-content">
+                                        <div class="task-title">${task.title}</div>
+                                        <div class="task-meta">
+                                            <span class="task-time">${task.time}</span>
+                                            <span class="task-notes">${task.notes}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            `;
+                        }).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        function renderStories() {
+            const container = document.getElementById('story-grid');
+            container.innerHTML = stories.map(story => {
+                const status = appData.stories[story.id] || story.defaultStatus;
+                return `
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-number">${story.number}</div>
+                            <span class="story-priority ${story.priority}">${story.priority}</span>
+                        </div>
+                        <div class="story-title">${story.title}</div>
+                        <div class="story-character">
+                            ${story.character}
+                            <span class="character-type ${story.type}">${story.type}</span>
+                        </div>
+                        <div class="story-skill">
+                            <div>
+                                <div class="story-skill-label">SEL Skill</div>
+                                <div class="story-skill-value">${story.skill}</div>
+                            </div>
+                        </div>
+                        <select class="story-status-select" onchange="updateStoryStatus('${story.id}', this.value)">
+                            <option value="idea" ${status === 'idea' ? 'selected' : ''}>💭 Idea Only</option>
+                            <option value="script" ${status === 'script' ? 'selected' : ''}>📝 Needs Script</option>
+                            <option value="ready" ${status === 'ready' ? 'selected' : ''}>✅ Ready to Film</option>
+                            <option value="filmed" ${status === 'filmed' ? 'selected' : ''}>🎬 Filmed</option>
+                            <option value="edited" ${status === 'edited' ? 'selected' : ''}>✂️ Edited</option>
+                            <option value="published" ${status === 'published' ? 'selected' : ''}>🚀 Published</option>
+                        </select>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderCharacters() {
+            const container = document.getElementById('character-grid');
+            container.innerHTML = characters.map(char => `
+                <div class="character-card">
+                    <div class="character-header">
+                        <div class="character-avatar ${char.type}">${char.emoji}</div>
+                        <div>
+                            <div class="character-name">${char.name}</div>
+                            <div class="character-type-label">${char.type.charAt(0).toUpperCase() + char.type.slice(1)} Character</div>
+                        </div>
+                    </div>
+                    <div class="character-section">
+                        <div class="character-section-title">Visual Description</div>
+                        <div class="character-section-content">${char.visual}</div>
+                    </div>
+                    <div class="character-section">
+                        <div class="character-section-title">Personality</div>
+                        <div class="character-section-content">${char.personality}</div>
+                    </div>
+                    <div class="character-section">
+                        <div class="character-section-title">Voice/Tone</div>
+                        <div class="character-section-content">${char.voice}</div>
+                    </div>
+                    <div class="character-section">
+                        <div class="character-section-title">Core Struggle</div>
+                        <div class="character-section-content">${char.struggle}</div>
+                    </div>
+                    <div class="character-section">
+                        <div class="character-section-title">Signature Phrase</div>
+                        <div class="character-phrase">${char.phrase}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPlaylists() {
+            const container = document.getElementById('playlist-grid');
+            container.innerHTML = playlists.map(playlist => {
+                const count = stories.filter(s => s.playlist === playlist.name).length;
+                return `
+                    <div class="playlist-card">
+                        <div class="playlist-icon" style="background: ${playlist.color}20; color: ${playlist.color};">${playlist.icon}</div>
+                        <div class="playlist-info">
+                            <div class="playlist-name">${playlist.name}</div>
+                            <div class="playlist-casel">${playlist.casel}</div>
+                        </div>
+                        <div class="playlist-count">
+                            <div class="playlist-count-value">${count}</div>
+                            <div class="playlist-count-label">Stories</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderCopy() {
+            const container = document.getElementById('copy-container');
+            container.innerHTML = channelCopy.map((item, idx) => `
+                <div class="copy-section">
+                    <div class="copy-header">
+                        <span class="copy-title">${item.title}</span>
+                        <button class="copy-btn" onclick="copyText(${idx}, this)">Copy</button>
+                    </div>
+                    <div class="copy-content">${item.content}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderSEL() {
+            const container = document.getElementById('sel-container');
+            container.innerHTML = selFramework.map(sel => `
+                <div class="card" style="border-left: 4px solid ${sel.color};">
+                    <div class="card-header">
+                        <div class="card-title" style="color: ${sel.color};">${sel.name}</div>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 15px;">${sel.definition}</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
+                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Skills Included</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">${sel.skills}</div>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
+                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Your Stories</div>
+                            <div style="font-size: 13px; color: ${sel.color};">${sel.stories}</div>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
+                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Search Keywords</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">${sel.keywords}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // UPDATE FUNCTIONS
+        // ============================================
+        function updateStats() {
+            const allTasks = phases.flatMap(p => p.tasks);
+            const completedTasks = allTasks.filter(t => appData.tasks[t.id]).length;
+            const totalTasks = allTasks.length;
+            const progress = Math.round((completedTasks / totalTasks) * 100);
+            
+            document.getElementById('total-progress').textContent = progress + '%';
+            document.getElementById('tasks-done').textContent = `${completedTasks}/${totalTasks}`;
+            document.getElementById('stat-progress').textContent = progress + '%';
+            document.getElementById('checklist-progress').textContent = `${completedTasks}/${totalTasks}`;
+            document.getElementById('overall-progress-value').textContent = progress + '%';
+            document.getElementById('overall-progress-bar').style.width = progress + '%';
+            
+            // Calculate remaining hours
+            const remainingTasks = totalTasks - completedTasks;
+            const avgMinutesPerTask = 22; // ~16 hours / 43 tasks
+            const remainingHours = Math.ceil((remainingTasks * avgMinutesPerTask) / 60);
+            document.getElementById('stat-hours').textContent = remainingHours + 'h';
+            
+            // Videos ready (phases 4-6 related)
+            const videoTasks = ['t24', 't25', 't26', 't29', 't30', 't31', 't37', 't38', 't39'];
+            const videosComplete = videoTasks.filter(t => appData.tasks[t]).length;
+            document.getElementById('stat-videos').textContent = `${Math.floor(videosComplete / 3)}/3`;
+            
+            // Stories ready
+            const readyStories = stories.filter(s => {
+                const status = appData.stories[s.id] || s.defaultStatus;
+                return ['ready', 'filmed', 'edited', 'published'].includes(status);
+            }).length;
+            document.getElementById('stories-ready').textContent = `${readyStories}/10`;
+            document.getElementById('stat-stories').textContent = `${readyStories}/10`;
+        }
+
+        function toggleTask(taskId) {
+            appData.tasks[taskId] = !appData.tasks[taskId];
+            saveToCloud();
+            renderChecklist();
+            renderPhases();
+            updateStats();
+        }
+
+        function updateStoryStatus(storyId, status) {
+            appData.stories[storyId] = status;
+            saveToCloud();
+            updateStats();
+        }
+
+        function copyText(idx, btn) {
+            const text = channelCopy[idx].content;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function scrollToPhase(phaseId) {
+            document.querySelector('[data-tab="checklist"]').click();
+            setTimeout(() => {
+                document.getElementById(phaseId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        // ============================================
+        // TAB NAVIGATION
+        // ============================================
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        async function init() {
+            await loadFromCloud();
+            renderPhases();
+            renderChecklist();
+            renderStories();
+            renderCharacters();
+            renderPlaylists();
+            renderCopy();
+            renderSEL();
+            updateStats();
+        }
+
+        init();
+    </script>
+</body>
+</html>

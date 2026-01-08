@@ -27,13 +27,13 @@
             --accent-red: #ef4444;
             --border: rgba(148, 163, 184, 0.1);
             --border-hover: rgba(148, 163, 184, 0.2);
+            --max-sage: #7c9a6e;
+            --ivy-lavender: #b4a7d6;
+            --koda-gray: #6b7280;
+            --zoey-blue: #93c5fd;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Nunito', system-ui, sans-serif;
@@ -75,7 +75,7 @@
         .brand-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-green));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -86,7 +86,7 @@
         .brand-text h1 {
             font-size: 20px;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -168,8 +168,8 @@
         }
 
         .nav-tab {
-            padding: 16px 24px;
-            font-size: 14px;
+            padding: 16px 20px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-muted);
             cursor: pointer;
@@ -184,8 +184,8 @@
         }
 
         .nav-tab.active {
-            color: var(--accent-green);
-            border-bottom-color: var(--accent-green);
+            color: var(--accent-orange);
+            border-bottom-color: var(--accent-orange);
         }
 
         /* Main Content */
@@ -195,10 +195,7 @@
             padding: 32px;
         }
 
-        .tab-content {
-            display: none;
-        }
-
+        .tab-content { display: none; }
         .tab-content.active {
             display: block;
             animation: fadeIn 0.3s ease;
@@ -244,9 +241,7 @@
         }
 
         /* Progress Bars */
-        .progress-container {
-            margin-bottom: 24px;
-        }
+        .progress-container { margin-bottom: 24px; }
 
         .progress-header {
             display: flex;
@@ -254,16 +249,8 @@
             margin-bottom: 8px;
         }
 
-        .progress-label {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .progress-value {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-green);
-        }
+        .progress-label { font-size: 14px; font-weight: 600; }
+        .progress-value { font-size: 14px; font-weight: 700; color: var(--accent-green); }
 
         .progress-bar {
             height: 12px;
@@ -274,7 +261,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-green));
             border-radius: 6px;
             transition: width 0.5s ease;
         }
@@ -334,17 +321,8 @@
         .phase-status.in-progress { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
         .phase-status.complete { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
 
-        .phase-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .phase-time {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
+        .phase-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .phase-time { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
 
         .phase-progress {
             height: 6px;
@@ -367,9 +345,7 @@
         }
 
         /* Task List */
-        .task-list {
-            list-style: none;
-        }
+        .task-list { list-style: none; }
 
         .task-item {
             display: flex;
@@ -380,13 +356,8 @@
             transition: background 0.2s;
         }
 
-        .task-item:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .task-item:last-child {
-            border-bottom: none;
-        }
+        .task-item:hover { background: var(--bg-card-hover); }
+        .task-item:last-child { border-bottom: none; }
 
         .task-checkbox {
             width: 24px;
@@ -402,9 +373,7 @@
             margin-top: 2px;
         }
 
-        .task-checkbox:hover {
-            border-color: var(--accent-green);
-        }
+        .task-checkbox:hover { border-color: var(--accent-green); }
 
         .task-checkbox.checked {
             background: var(--accent-green);
@@ -418,15 +387,8 @@
             font-weight: 700;
         }
 
-        .task-content {
-            flex: 1;
-        }
-
-        .task-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
+        .task-content { flex: 1; }
+        .task-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 
         .task-item.completed .task-title {
             text-decoration: line-through;
@@ -447,9 +409,7 @@
             border-radius: 4px;
         }
 
-        .task-notes {
-            color: var(--text-secondary);
-        }
+        .task-notes { color: var(--text-secondary); }
 
         /* Story Cards */
         .story-grid {
@@ -481,7 +441,7 @@
         .story-number {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -502,11 +462,7 @@
         .story-priority.medium { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
         .story-priority.low { background: rgba(100, 116, 139, 0.2); color: var(--text-muted); }
 
-        .story-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+        .story-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
 
         .story-character {
             display: inline-flex;
@@ -517,16 +473,18 @@
             margin-bottom: 12px;
         }
 
-        .character-type {
+        .character-badge {
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 600;
         }
 
-        .character-type.object { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
-        .character-type.human { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
-        .character-type.animal { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .character-badge.max { background: rgba(124, 154, 110, 0.3); color: var(--max-sage); }
+        .character-badge.ivy { background: rgba(180, 167, 214, 0.3); color: var(--ivy-lavender); }
+        .character-badge.koda { background: rgba(107, 114, 128, 0.3); color: #9ca3af; }
+        .character-badge.zoey { background: rgba(147, 197, 253, 0.3); color: var(--zoey-blue); }
+        .character-badge.family { background: rgba(245, 158, 11, 0.3); color: var(--accent-orange); }
 
         .story-skill {
             display: flex;
@@ -567,7 +525,7 @@
             border-color: var(--accent-green);
         }
 
-        /* Character Bible */
+        /* Character Cards */
         .character-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -598,23 +556,15 @@
             flex-shrink: 0;
         }
 
-        .character-avatar.object { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); }
-        .character-avatar.human { background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); }
-        .character-avatar.animal { background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink)); }
+        .character-avatar.max { background: linear-gradient(135deg, var(--max-sage), #5a7a4a); }
+        .character-avatar.ivy { background: linear-gradient(135deg, var(--ivy-lavender), #8b7cb3); }
+        .character-avatar.koda { background: linear-gradient(135deg, var(--koda-gray), #4b5563); }
+        .character-avatar.zoey { background: linear-gradient(135deg, var(--zoey-blue), #60a5fa); }
 
-        .character-name {
-            font-size: 20px;
-            font-weight: 700;
-        }
+        .character-name { font-size: 20px; font-weight: 700; }
+        .character-type-label { font-size: 12px; color: var(--text-muted); }
 
-        .character-type-label {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .character-section {
-            margin-bottom: 16px;
-        }
+        .character-section { margin-bottom: 16px; }
 
         .character-section-title {
             font-size: 11px;
@@ -636,8 +586,8 @@
             padding: 12px;
             border-radius: 8px;
             font-style: italic;
-            color: var(--accent-green);
-            border-left: 3px solid var(--accent-green);
+            color: var(--accent-orange);
+            border-left: 3px solid var(--accent-orange);
         }
 
         /* Playlist Section */
@@ -668,38 +618,15 @@
             flex-shrink: 0;
         }
 
-        .playlist-info {
-            flex: 1;
-        }
+        .playlist-info { flex: 1; }
+        .playlist-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .playlist-casel { font-size: 12px; color: var(--text-muted); }
 
-        .playlist-name {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
+        .playlist-count { text-align: center; }
+        .playlist-count-value { font-size: 20px; font-weight: 700; color: var(--accent-green); }
+        .playlist-count-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
 
-        .playlist-casel {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .playlist-count {
-            text-align: center;
-        }
-
-        .playlist-count-value {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-green);
-        }
-
-        .playlist-count-label {
-            font-size: 10px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* Channel Copy */
+        /* Copy Sections */
         .copy-section {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -717,14 +644,11 @@
             align-items: center;
         }
 
-        .copy-title {
-            font-size: 14px;
-            font-weight: 700;
-        }
+        .copy-title { font-size: 14px; font-weight: 700; }
 
         .copy-btn {
             padding: 6px 12px;
-            background: var(--accent-green);
+            background: var(--accent-orange);
             border: none;
             border-radius: 6px;
             color: white;
@@ -734,13 +658,8 @@
             transition: all 0.2s;
         }
 
-        .copy-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .copy-btn.copied {
-            background: var(--accent-purple);
-        }
+        .copy-btn:hover { transform: scale(1.05); }
+        .copy-btn.copied { background: var(--accent-purple); }
 
         .copy-content {
             padding: 20px;
@@ -766,22 +685,74 @@
             text-align: center;
         }
 
-        .stat-icon {
-            font-size: 32px;
+        .stat-icon { font-size: 32px; margin-bottom: 12px; }
+        .stat-value { font-size: 32px; font-weight: 800; margin-bottom: 4px; }
+        .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
+
+        /* Good Inside Framework */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .framework-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .framework-number {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
             margin-bottom: 12px;
         }
 
-        .stat-value {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 4px;
+        .framework-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent-orange);
         }
 
-        .stat-label {
-            font-size: 12px;
+        .framework-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Parent Winks */
+        .wink-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .wink-table th, .wink-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .wink-table th {
+            background: var(--bg-primary);
+            font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
+            font-size: 11px;
         }
+
+        .wink-table td:first-child { color: var(--text-secondary); }
+        .wink-table td:last-child { color: var(--accent-orange); font-style: italic; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -794,20 +765,6 @@
             .story-grid { grid-template-columns: 1fr; }
             .character-grid { grid-template-columns: 1fr; }
         }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 0.5s ease;
-        }
-
-        .slide-up {
-            animation: slideUp 0.5s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -815,10 +772,10 @@
     <header class="header">
         <div class="header-content">
             <div class="brand">
-                <div class="brand-icon">🌱</div>
+                <div class="brand-icon">🐕</div>
                 <div class="brand-text">
                     <h1>Stories That Help Kids Grow</h1>
-                    <p>YouTube Launch Command Center</p>
+                    <p>Featuring The Sunny Family | Launch Command Center</p>
                 </div>
             </div>
             <div class="header-stats">
@@ -848,10 +805,12 @@
             <div class="nav-tab active" data-tab="dashboard">📊 Dashboard</div>
             <div class="nav-tab" data-tab="checklist">✅ Launch Checklist</div>
             <div class="nav-tab" data-tab="stories">📚 Story Pipeline</div>
-            <div class="nav-tab" data-tab="characters">🎭 Character Bible</div>
+            <div class="nav-tab" data-tab="characters">🐕 Sunny Family</div>
+            <div class="nav-tab" data-tab="framework">💚 Good Inside</div>
+            <div class="nav-tab" data-tab="winks">😉 Parent Winks</div>
             <div class="nav-tab" data-tab="playlists">📁 Playlists</div>
             <div class="nav-tab" data-tab="copy">📝 Channel Copy</div>
-            <div class="nav-tab" data-tab="sel">🧠 SEL Framework</div>
+            <div class="nav-tab" data-tab="specs">📐 Story Specs</div>
         </div>
     </nav>
 
@@ -877,7 +836,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">📖</div>
-                    <div class="stat-value" id="stat-stories">3/10</div>
+                    <div class="stat-value" id="stat-stories">1/10</div>
                     <div class="stat-label">Stories Planned</div>
                 </div>
             </div>
@@ -885,7 +844,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));">🚀</div>
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-green));">🚀</div>
                         Overall Launch Progress
                     </div>
                 </div>
@@ -901,9 +860,7 @@
             </div>
 
             <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">📋 Launch Phases</h2>
-            <div class="phase-grid" id="phase-grid">
-                <!-- Phases will be rendered here -->
-            </div>
+            <div class="phase-grid" id="phase-grid"></div>
         </div>
 
         <!-- Checklist Tab -->
@@ -918,9 +875,7 @@
                         <span id="checklist-progress">0/43</span> tasks complete
                     </div>
                 </div>
-                <div id="checklist-container">
-                    <!-- Tasks will be rendered here -->
-                </div>
+                <div id="checklist-container"></div>
             </div>
         </div>
 
@@ -929,15 +884,14 @@
             <div class="card" style="margin-bottom: 24px;">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));">📚</div>
-                        Story Pipeline
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));">📚</div>
+                        Story Pipeline — The Sunny Family
                     </div>
                 </div>
-                <p style="color: var(--text-secondary); margin-bottom: 16px;">Your next 10 stories mapped to SEL skills. Update status as you progress.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 8px;">Animated stories featuring Max, Ivy, Koda & Zoey. 350-450 words, 18-22 pages, ~5 minutes.</p>
+                <p style="color: var(--text-muted); font-size: 13px;">Title Convention: Bluey-style 1-2 words naming object/place — NOT "Character Learns X"</p>
             </div>
-            <div class="story-grid" id="story-grid">
-                <!-- Stories will be rendered here -->
-            </div>
+            <div class="story-grid" id="story-grid"></div>
         </div>
 
         <!-- Characters Tab -->
@@ -945,15 +899,43 @@
             <div class="card" style="margin-bottom: 24px;">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));">🎭</div>
-                        Character Bible
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));">🐕</div>
+                        The Sunny Family — Character Bible
                     </div>
                 </div>
-                <p style="color: var(--text-secondary);">Your character profiles - visual descriptions, personality traits, voice notes, and signature phrases.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 8px;"><strong>Why Golden Retrievers?</strong> Universally beloved, warm, family-oriented. Golden = "Sunny" brand alignment.</p>
+                <p style="color: var(--text-muted); font-size: 13px;">Koda = Bandit-inspired. Zoey = Chilli-inspired. Bluey-level parent resonance without copying.</p>
             </div>
-            <div class="character-grid" id="character-grid">
-                <!-- Characters will be rendered here -->
+            <div class="character-grid" id="character-grid"></div>
+        </div>
+
+        <!-- Good Inside Framework Tab -->
+        <div class="tab-content" id="tab-framework">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));">💚</div>
+                        Good Inside Framework (Dr. Becky Kennedy)
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 8px;"><strong>Core Belief:</strong> Children are inherently good. Challenging behaviors stem from unmet needs, big emotions, or undeveloped skills — NOT from being "bad kids."</p>
+                <p style="color: var(--text-muted); font-size: 13px;">Our stories translate Dr. Becky's philosophy into content kids can actually watch and enjoy.</p>
             </div>
+            <div class="framework-grid" id="framework-grid"></div>
+        </div>
+
+        <!-- Parent Winks Tab -->
+        <div class="tab-content" id="tab-winks">
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));">😉</div>
+                        Parent-to-Parent Winks Library
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);">Moments that make parents think "they GET it." Kid experience is 100% complete without catching the joke.</p>
+            </div>
+            <div id="winks-container"></div>
         </div>
 
         <!-- Playlists Tab -->
@@ -967,9 +949,7 @@
                 </div>
                 <p style="color: var(--text-secondary);">SEL-organized playlists mapped to CASEL competencies. Parents search by problem, not character.</p>
             </div>
-            <div class="playlist-grid" id="playlist-grid">
-                <!-- Playlists will be rendered here -->
-            </div>
+            <div class="playlist-grid" id="playlist-grid"></div>
         </div>
 
         <!-- Copy Tab -->
@@ -983,24 +963,74 @@
                 </div>
                 <p style="color: var(--text-secondary);">Click "Copy" to copy any section to your clipboard.</p>
             </div>
-            <div id="copy-container">
-                <!-- Copy sections will be rendered here -->
-            </div>
+            <div id="copy-container"></div>
         </div>
 
-        <!-- SEL Framework Tab -->
-        <div class="tab-content" id="tab-sel">
-            <div class="card" style="margin-bottom: 24px;">
+        <!-- Story Specs Tab -->
+        <div class="tab-content" id="tab-specs">
+            <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));">🧠</div>
-                        CASEL SEL Framework
+                        <div class="card-title-icon" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));">📐</div>
+                        Story Format Specifications
                     </div>
                 </div>
-                <p style="color: var(--text-secondary);">The 5 CASEL competencies that structure your content. Use this to plan new stories.</p>
-            </div>
-            <div id="sel-container">
-                <!-- SEL framework will be rendered here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+                    <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-orange);">~5 min</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Runtime</div>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-green);">350-450</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Words Total</div>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-blue);">18-22</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Pages</div>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-purple);">15-22</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Words/Page Avg</div>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-pink);">2-3</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Interactive Moments</div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 16px; margin-bottom: 12px;">Page Structure</h3>
+                    <div style="display: grid; gap: 8px;">
+                        <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">Pages 1-3</span>
+                            <span style="color: var(--accent-green);">Setup</span>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">Pages 4-8</span>
+                            <span style="color: var(--accent-blue);">Build — problem emerges</span>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">Pages 9-14</span>
+                            <span style="color: var(--accent-orange);">Struggle + Discovery</span>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">Pages 15-18</span>
+                            <span style="color: var(--accent-purple);">Resolution</span>
+                        </div>
+                        <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">Pages 19-22</span>
+                            <span style="color: var(--accent-pink);">Reinforcement</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 16px; margin-bottom: 12px;">Lesson Delivery Pattern</h3>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
+                        Problem → Struggle → Parent reveals shared experience → Tool shown → Kid succeeds alone → Brief reinforcement
+                    </p>
+                    <p style="color: var(--accent-orange); font-size: 13px; margin-top: 8px; font-style: italic;">
+                        "YOU did that" — build self-efficacy, not dependence
+                    </p>
+                </div>
             </div>
         </div>
     </main>
@@ -1009,29 +1039,15 @@
         // ============================================
         // CLOUD SYNC CONFIGURATION (JSONBin)
         // ============================================
-        // To set up:
-        // 1. Go to jsonbin.io and create a free account
-        // 2. Get your Master Key from the API Keys section
-        // 3. Replace 'YOUR_API_KEY_HERE' below with your actual key
-        
-        const JSONBIN_KEY = '$2a$10$/U.VcMOsSVGv.U3dsQVMCuoT6tCgV8h03geLfIdp0O2S7KE2aleuC'; // Replace with your JSONBin Master Key
-        const STORAGE_KEY = 'sthkg-data';
-        const BIN_ID_KEY = 'sthkg-bin-id';
+        const JSONBIN_KEY = '$2a$10$YOUR_API_KEY_HERE';
+        const STORAGE_KEY = 'sthkg-v2-data';
+        const BIN_ID_KEY = 'sthkg-v2-bin-id';
         
         let binId = localStorage.getItem(BIN_ID_KEY);
         let syncStatus = 'connecting';
         let syncTimeout = null;
-        let lastSyncTime = null;
 
-        // ============================================
-        // DATA STRUCTURE
-        // ============================================
-        const defaultData = {
-            tasks: {},
-            stories: {},
-            lastUpdated: new Date().toISOString()
-        };
-
+        const defaultData = { tasks: {}, stories: {}, lastUpdated: new Date().toISOString() };
         let appData = { ...defaultData };
 
         // ============================================
@@ -1039,142 +1055,164 @@
         // ============================================
         const phases = [
             {
-                id: 'phase1',
-                number: 1,
-                name: 'Brand Setup',
-                time: '2 hours',
+                id: 'phase1', number: 1, name: 'Brand Setup', time: '2 hours',
                 tasks: [
-                    { id: 't1', title: 'Check domain availability: storiesthathelpkidsgrow.com', time: '5 min', notes: 'Use GoDaddy or Namecheap' },
-                    { id: 't2', title: 'Purchase domain (.com and .co backup)', time: '10 min', notes: '~$25/year' },
-                    { id: 't3', title: 'Create YouTube channel: Stories That Help Kids Grow', time: '15 min', notes: 'Use existing Google account' },
-                    { id: 't4', title: 'Secure handle: @StoriesThatHelpKidsGrow', time: '5 min', notes: 'Check availability first' },
+                    { id: 't1', title: 'Check domain: storiesthathelpkidsgrow.com', time: '5 min', notes: 'GoDaddy or Namecheap' },
+                    { id: 't2', title: 'Purchase domain (.com + .co backup)', time: '10 min', notes: '~$25/year' },
+                    { id: 't3', title: 'Create YouTube channel', time: '15 min', notes: 'Use existing Google account' },
+                    { id: 't4', title: 'Secure handle: @StoriesThatHelpKidsGrow', time: '5 min', notes: 'Check availability' },
                     { id: 't5', title: 'Secure Instagram: @storiesthathelpkidsgrow', time: '5 min', notes: '20 chars - fits limit' },
-                    { id: 't6', title: 'Secure TikTok: @StoriesHelpKidsGrow', time: '5 min', notes: 'Abbreviated for 24 char limit' },
-                    { id: 't7', title: 'Write channel description', time: '20 min', notes: 'SEO optimized - see Channel Copy tab' },
-                    { id: 't8', title: 'Create channel banner (Canva)', time: '30 min', notes: '1546 x 423 pixels' },
-                    { id: 't9', title: 'Create channel profile picture', time: '15 min', notes: '800 x 800 pixels' }
+                    { id: 't6', title: 'Secure TikTok: @StoriesHelpKidsGrow', time: '5 min', notes: 'Abbreviated' },
+                    { id: 't7', title: 'Write channel description', time: '20 min', notes: 'SEO optimized' },
+                    { id: 't8', title: 'Create channel banner (Canva)', time: '30 min', notes: '1546 x 423 px' },
+                    { id: 't9', title: 'Create profile picture', time: '15 min', notes: '800 x 800 px' }
                 ]
             },
             {
-                id: 'phase2',
-                number: 2,
-                name: 'Content Prep',
-                time: '3 hours',
+                id: 'phase2', number: 2, name: 'Content Prep', time: '3 hours',
                 tasks: [
-                    { id: 't10', title: 'Finalize Captain Pillow script', time: '30 min', notes: 'Already written - review' },
-                    { id: 't11', title: 'Finalize Max Means To script', time: '30 min', notes: 'Already written - review' },
-                    { id: 't12', title: 'Finalize Star Train script (calming down)', time: '45 min', notes: 'Draft or finalize' },
-                    { id: 't13', title: 'Create thumbnail template in Canva', time: '30 min', notes: '1280 x 720 pixels' },
-                    { id: 't14', title: 'Design 3 thumbnails (one per story)', time: '45 min', notes: 'Bright, clear, character-focused' },
-                    { id: 't15', title: 'Write video titles (SEO optimized)', time: '15 min', notes: 'Format: [Character] | [Skill] | Stories That Help Kids Grow' },
-                    { id: 't16', title: 'Write video descriptions (3)', time: '30 min', notes: 'Include keywords + timestamps' }
+                    { id: 't10', title: 'Finalize The Red Truck script (pilot)', time: '45 min', notes: 'Sharing story - pilot episode' },
+                    { id: 't11', title: 'Generate AI illustrations for pilot', time: '60 min', notes: 'Sunny Family characters' },
+                    { id: 't12', title: 'Create thumbnail template in Canva', time: '30 min', notes: '1280 x 720 px' },
+                    { id: 't13', title: 'Design pilot thumbnail', time: '15 min', notes: 'Bright, character-focused' },
+                    { id: 't14', title: 'Write video title (SEO optimized)', time: '10 min', notes: '[Title] | [Skill] | Stories That Help Kids Grow' },
+                    { id: 't15', title: 'Write video description', time: '20 min', notes: 'Keywords + timestamps' }
                 ]
             },
             {
-                id: 'phase3',
-                number: 3,
-                name: 'Filming Setup',
-                time: '2 hours',
+                id: 'phase3', number: 3, name: 'Filming Setup', time: '2 hours',
                 tasks: [
-                    { id: 't17', title: 'Choose filming location (consistent background)', time: '15 min', notes: 'Neutral, warm, uncluttered' },
-                    { id: 't18', title: 'Set up ring light or natural lighting', time: '15 min', notes: 'Face the light source' },
-                    { id: 't19', title: 'Test camera angle (eye level, close enough)', time: '10 min', notes: 'Kids need to see your face clearly' },
-                    { id: 't20', title: 'Test audio (external mic if possible)', time: '15 min', notes: 'Lavalier or shotgun mic ideal' },
-                    { id: 't21', title: 'Create book holder/stand setup', time: '15 min', notes: 'Hands-free page turning helps' },
-                    { id: 't22', title: 'Do 1-minute test recording', time: '10 min', notes: 'Check audio + video quality' },
-                    { id: 't23', title: 'Review test and adjust', time: '15 min', notes: 'Fix any issues before full filming' }
+                    { id: 't16', title: 'Choose filming location', time: '15 min', notes: 'Consistent background' },
+                    { id: 't17', title: 'Set up ring light or natural lighting', time: '15 min', notes: 'Face the light source' },
+                    { id: 't18', title: 'Test camera angle (eye level)', time: '10 min', notes: 'Kids need to see your face' },
+                    { id: 't19', title: 'Test audio (external mic)', time: '15 min', notes: 'Lavalier or shotgun ideal' },
+                    { id: 't20', title: 'Set up screen/monitor for illustrations', time: '20 min', notes: '4K, 60fps, landscape' },
+                    { id: 't21', title: 'Do 1-minute test recording', time: '10 min', notes: 'Check A/V quality' },
+                    { id: 't22', title: 'Review test and adjust', time: '15 min', notes: 'Fix issues before filming' }
                 ]
             },
             {
-                id: 'phase4',
-                number: 4,
-                name: 'Filming',
-                time: '3 hours',
+                id: 'phase4', number: 4, name: 'Filming', time: '3 hours',
                 tasks: [
-                    { id: 't24', title: 'Film Captain Pillow (full read + intro/outro)', time: '45 min', notes: 'Multiple takes if needed' },
-                    { id: 't25', title: 'Film Max Means To', time: '45 min', notes: 'Stay consistent with energy' },
-                    { id: 't26', title: 'Film Star Train', time: '45 min', notes: 'Calming energy for this one' },
-                    { id: 't27', title: 'Film channel trailer (30-60 seconds)', time: '30 min', notes: 'Introduce yourself + mission' },
-                    { id: 't28', title: 'Review all footage for quality', time: '15 min', notes: 'Re-film any issues' }
+                    { id: 't23', title: 'Film The Red Truck (pilot)', time: '45 min', notes: 'Multiple takes if needed' },
+                    { id: 't24', title: 'Film channel trailer (30-60 sec)', time: '30 min', notes: 'Intro yourself + mission' },
+                    { id: 't25', title: 'Review all footage', time: '15 min', notes: 'Re-film any issues' }
                 ]
             },
             {
-                id: 'phase5',
-                number: 5,
-                name: 'Editing & Post',
-                time: '4 hours',
+                id: 'phase5', number: 5, name: 'Editing & Post', time: '4 hours',
                 tasks: [
-                    { id: 't29', title: 'Edit Captain Pillow video', time: '45 min', notes: 'Simple cuts, add title cards' },
-                    { id: 't30', title: 'Edit Max Means To video', time: '45 min', notes: 'Consistent style' },
-                    { id: 't31', title: 'Edit Star Train video', time: '45 min', notes: 'Calming pacing' },
-                    { id: 't32', title: 'Edit channel trailer', time: '30 min', notes: 'Punchy, clear, inviting' },
-                    { id: 't33', title: 'Add intro/outro graphics (optional)', time: '30 min', notes: 'Can add later if time-pressed' },
-                    { id: 't34', title: 'Export all videos (1080p minimum)', time: '30 min', notes: 'MP4 format' },
-                    { id: 't35', title: 'Create playlists on YouTube', time: '15 min', notes: 'See Playlists tab for structure' }
+                    { id: 't26', title: 'Edit The Red Truck video', time: '60 min', notes: 'Simple cuts, title cards' },
+                    { id: 't27', title: 'Edit channel trailer', time: '30 min', notes: 'Punchy, clear, inviting' },
+                    { id: 't28', title: 'Add intro/outro graphics', time: '30 min', notes: 'Can add later if time-pressed' },
+                    { id: 't29', title: 'Export all videos (1080p min)', time: '30 min', notes: 'MP4 format' },
+                    { id: 't30', title: 'Create playlists on YouTube', time: '15 min', notes: 'SEL-organized structure' }
                 ]
             },
             {
-                id: 'phase6',
-                number: 6,
-                name: 'Launch',
-                time: '2 hours',
+                id: 'phase6', number: 6, name: 'Launch', time: '2 hours',
                 tasks: [
-                    { id: 't36', title: 'Upload channel trailer', time: '15 min', notes: 'Set as channel trailer' },
-                    { id: 't37', title: 'Upload Captain Pillow video', time: '15 min', notes: 'Add to appropriate playlists' },
-                    { id: 't38', title: 'Upload Max Means To video', time: '15 min', notes: 'Add to appropriate playlists' },
-                    { id: 't39', title: 'Upload Star Train video', time: '15 min', notes: 'Add to appropriate playlists' },
-                    { id: 't40', title: 'Add end screens to all videos', time: '20 min', notes: 'Subscribe + next video' },
-                    { id: 't41', title: 'Add cards to all videos', time: '15 min', notes: 'Link to related content' },
-                    { id: 't42', title: 'Cross-post announcement to personal LinkedIn', time: '10 min', notes: 'Share your journey' },
-                    { id: 't43', title: 'Cross-post to personal Instagram', time: '10 min', notes: 'Story + feed post' }
+                    { id: 't31', title: 'Upload channel trailer', time: '15 min', notes: 'Set as channel trailer' },
+                    { id: 't32', title: 'Upload The Red Truck (pilot)', time: '15 min', notes: 'Add to playlists' },
+                    { id: 't33', title: 'Add end screens', time: '15 min', notes: 'Subscribe + next video' },
+                    { id: 't34', title: 'Add cards', time: '10 min', notes: 'Link to related content' },
+                    { id: 't35', title: 'Cross-post to LinkedIn', time: '10 min', notes: 'Share your journey' },
+                    { id: 't36', title: 'Cross-post to Instagram', time: '10 min', notes: 'Story + feed post' },
+                    { id: 't37', title: 'Share with family/friends', time: '10 min', notes: 'Early engagement helps algorithm' }
                 ]
             }
         ];
 
         // ============================================
-        // STORY DATA
+        // STORY DATA - THE SUNNY FAMILY
         // ============================================
         const stories = [
-            { id: 's1', number: 1, title: 'Captain Pillow and the Wobbly Tower', character: 'Captain Pillow', type: 'object', skill: 'Trying Again / Persistence', casel: 'Self-Management', lesson: 'When something falls, we can try again. Failing is part of learning.', playlist: 'Stories About Trying Again', priority: 'high', defaultStatus: 'ready' },
-            { id: 's2', number: 2, title: 'Max Means To', character: 'Max', type: 'human', skill: 'Self-Regulation / Impulse Control', casel: 'Self-Management', lesson: 'Our brains sometimes act before we think. We can catch ourselves and try again.', playlist: 'Stories About Self-Regulation', priority: 'high', defaultStatus: 'ready' },
-            { id: 's3', number: 3, title: 'Star Train to Sleepy Station', character: 'Star Train', type: 'object', skill: 'Calming Down / Relaxation', casel: 'Self-Management', lesson: 'We can take slow breaths and let our bodies rest, like a train slowing to a station.', playlist: 'Stories About Calming Down', priority: 'high', defaultStatus: 'ready' },
-            { id: 's4', number: 4, title: 'Turtle Takes His Time', character: 'Turtle', type: 'animal', skill: 'Patience / Waiting', casel: 'Self-Management', lesson: 'Good things take time. We can wait without rushing.', playlist: 'Stories About Patience', priority: 'medium', defaultStatus: 'script' },
-            { id: 's5', number: 5, title: "Bunny's Big Feelings Basket", character: 'Bunny', type: 'animal', skill: 'Emotional Awareness', casel: 'Self-Awareness', lesson: 'All feelings are okay. We can notice them and name them.', playlist: 'Stories About Big Feelings', priority: 'medium', defaultStatus: 'script' },
-            { id: 's6', number: 6, title: 'The Sharing Squirrels', character: 'Squirrel Siblings', type: 'animal', skill: 'Sharing / Taking Turns', casel: 'Relationship Skills', lesson: 'Sharing can feel hard, but it makes playing together more fun.', playlist: 'Stories About Sharing', priority: 'medium', defaultStatus: 'idea' },
-            { id: 's7', number: 7, title: 'Bear Learns to Breathe', character: 'Bear', type: 'animal', skill: 'Anger Management / Calming', casel: 'Self-Management', lesson: 'When we feel angry, we can stop and breathe before we act.', playlist: 'Stories About Calming Down', priority: 'medium', defaultStatus: 'idea' },
-            { id: 's8', number: 8, title: 'The Kindness Caterpillar', character: 'Caterpillar', type: 'animal', skill: 'Kindness / Helping Others', casel: 'Social Awareness', lesson: 'Small acts of kindness make big differences for others.', playlist: 'Stories About Kindness', priority: 'low', defaultStatus: 'idea' },
-            { id: 's9', number: 9, title: 'Fox Finds a Friend', character: 'Fox', type: 'animal', skill: 'Making Friends / Social Skills', casel: 'Relationship Skills', lesson: 'Making friends starts with being friendly and showing interest.', playlist: 'Stories About Making Friends', priority: 'low', defaultStatus: 'idea' },
-            { id: 's10', number: 10, title: "Owl's Worry Cloud", character: 'Owl', type: 'animal', skill: 'Worry / Anxiety Management', casel: 'Self-Management', lesson: 'Worries are like clouds - they come and go. We can let them float by.', playlist: 'Stories About Big Feelings', priority: 'low', defaultStatus: 'idea' }
+            { id: 's1', number: 1, title: 'The Red Truck', character: 'Max + Ivy', charClass: 'family', skill: 'Sharing', casel: 'Relationship Skills', lesson: 'Sharing can feel hard, but it makes playing together more fun.', playlist: 'Stories About Sharing', priority: 'high', defaultStatus: 'ready' },
+            { id: 's2', number: 2, title: 'Bouncy Brain', character: 'Max', charClass: 'max', skill: 'Self-Regulation', casel: 'Self-Management', lesson: 'Our brains sometimes bounce away. We can catch them and try again.', playlist: 'Stories About Self-Regulation', priority: 'high', defaultStatus: 'script' },
+            { id: 's3', number: 3, title: 'The Wobbly Tower', character: 'Max + Koda', charClass: 'max', skill: 'Trying Again / Persistence', casel: 'Self-Management', lesson: 'When something falls, we can try again. Failing is part of learning.', playlist: 'Stories About Trying Again', priority: 'high', defaultStatus: 'idea' },
+            { id: 's4', number: 4, title: 'Ivy\'s Turn', character: 'Ivy', charClass: 'ivy', skill: 'Patience / Waiting', casel: 'Self-Management', lesson: 'Good things take time. We can wait without rushing.', playlist: 'Stories About Patience', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's5', number: 5, title: 'The Puddle', character: 'Max + Ivy', charClass: 'family', skill: 'Impulse Control', casel: 'Self-Management', lesson: 'Sometimes our legs go before our brain says stop. That\'s okay.', playlist: 'Stories About Self-Regulation', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's6', number: 6, title: 'Sleepy Station', character: 'Zoey + Max', charClass: 'zoey', skill: 'Calming Down / Bedtime', casel: 'Self-Management', lesson: 'We can take slow breaths and let our bodies rest.', playlist: 'Bedtime Stories', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's7', number: 7, title: 'The Mad Feeling', character: 'Max + Koda', charClass: 'koda', skill: 'Anger Management', casel: 'Self-Management', lesson: 'When we feel angry, we can stop and breathe before we act.', playlist: 'Stories About Calming Down', priority: 'medium', defaultStatus: 'idea' },
+            { id: 's8', number: 8, title: 'New Friend', character: 'Ivy', charClass: 'ivy', skill: 'Making Friends', casel: 'Relationship Skills', lesson: 'Making friends starts with being friendly and showing interest.', playlist: 'Stories About Making Friends', priority: 'low', defaultStatus: 'idea' },
+            { id: 's9', number: 9, title: 'The Worry Cloud', character: 'Max + Zoey', charClass: 'zoey', skill: 'Worry / Anxiety', casel: 'Self-Awareness', lesson: 'Worries are like clouds - they come and go. We can let them float by.', playlist: 'Stories About Big Feelings', priority: 'low', defaultStatus: 'idea' },
+            { id: 's10', number: 10, title: 'Koda\'s Game', character: 'Koda + Max', charClass: 'koda', skill: 'Losing / Disappointment', casel: 'Self-Management', lesson: 'Losing feels hard, but we can still have fun playing.', playlist: 'Stories About Big Feelings', priority: 'low', defaultStatus: 'idea' }
         ];
 
         // ============================================
-        // CHARACTER DATA
+        // CHARACTER DATA - THE SUNNY FAMILY
         // ============================================
         const characters = [
-            { name: 'Captain Pillow', type: 'object', emoji: '🛏️', visual: 'Soft, rectangular pillow with a captain\'s hat. Friendly button eyes. Maybe small embroidered anchor.', personality: 'Determined, optimistic, doesn\'t give up easily. Gets knocked down but always gets back up.', voice: 'Warm, encouraging, slightly adventurous', struggle: 'Building things that keep falling down. Trying hard but failing.', phrase: '"Let\'s try again!" or "One more time!"', stories: 'Captain Pillow and the Wobbly Tower (+ future sequels)' },
-            { name: 'Max', type: 'human', emoji: '👦', visual: 'Young boy, 4-5 years old. Expressive face. Casual clothes. Relatable "every kid" look.', personality: 'Well-meaning, energetic, sometimes acts before thinking. Genuinely wants to do the right thing.', voice: 'Earnest, slightly hurried, apologetic when he realizes mistakes', struggle: 'Brain moves faster than his intentions. Does things he didn\'t mean to do.', phrase: '"I meant to..." or "My brain bounced!"', stories: 'Max Means To (+ future sequels)' },
-            { name: 'Star Train', type: 'object', emoji: '🚂', visual: 'Gentle, glowing train with soft star shapes. Moves slowly. Calming colors (blues, purples, soft golds).', personality: 'Peaceful, patient, reassuring. Never in a hurry. Helps others slow down.', voice: 'Slow, melodic, almost whisper-like. Very calming.', struggle: 'Helping others (and self) slow down when the world feels too fast.', phrase: '"All aboard for calm..." or "Slow and steady to sleepy station"', stories: 'Star Train to Sleepy Station (+ future sequels)' },
-            { name: 'Turtle', type: 'animal', emoji: '🐢', visual: 'Friendly turtle with expressive eyes. Maybe a small hat or accessory. Not too cartoonish.', personality: 'Patient, wise for his age, comfortable taking things slow. Doesn\'t rush.', voice: 'Thoughtful, measured, gentle', struggle: 'Waiting when others want to rush. Teaching patience by example.', phrase: '"Good things take time" or "Slow is okay"', stories: 'Turtle Takes His Time (planned)' },
-            { name: 'Bunny', type: 'animal', emoji: '🐰', visual: 'Soft, fluffy bunny. Big expressive ears that show emotion. Warm colors.', personality: 'Sensitive, emotionally aware, helps others name feelings. Sometimes overwhelmed by big feelings.', voice: 'Gentle, curious, validating', struggle: 'Having big feelings and learning they\'re all okay.', phrase: '"That\'s a big feeling!" or "All feelings are welcome here"', stories: 'Bunny\'s Big Feelings Basket (planned)' },
-            { name: 'Bear', type: 'animal', emoji: '🐻', visual: 'Strong but soft bear. Not scary. Warm brown tones. Expressive eyebrows.', personality: 'Gets frustrated easily, learning to manage anger. Good heart, just big emotions.', voice: 'Initially grumbly, then softens. Deep voice but gentle.', struggle: 'Anger that feels too big. Learning to pause before acting.', phrase: '"I need to stop and breathe" or "My calm is coming back"', stories: 'Bear Learns to Breathe (planned)' },
-            { name: 'Owl', type: 'animal', emoji: '🦉', visual: 'Wise-looking owl with slightly worried expression. Soft feathers. Night-time colors.', personality: 'Thoughtful, sometimes worries too much. Uses wisdom to work through worries.', voice: 'Contemplative, slightly anxious at first, then calming', struggle: 'Worries that keep circling. Learning to let them pass.', phrase: '"Worries come and worries go" or "This cloud will float away"', stories: 'Owl\'s Worry Cloud (planned)' }
+            { name: 'Max', age: 6, role: 'Protagonist Son', type: 'max', emoji: '🐕', color: 'Sage Green', pajamas: 'Olive/cream stripe', visual: 'Warm golden fur, messy tuft on head. Sage green t-shirt + tan joggers.', personality: 'Energetic, enthusiastic, curious. "Bouncy brain" — gets distracted, good intentions. Loves dinosaurs (especially T-Rex). Protective of Ivy but sometimes annoyed.', voice: 'Natural voice, higher energy', struggle: 'Brain moves faster than intentions. Impulse control challenges.', phrase: '"Let\'s try again!" or "My brain bounced!"' },
+            { name: 'Ivy', age: 4, role: 'Bold Younger Sister', type: 'ivy', emoji: '🐕', color: 'Lavender', pajamas: 'Lavender set + teddy bear', visual: 'Lighter cream-golden fur (palest in family). Lavender dress + pink bow.', personality: 'Bold and brave in HER OWN WAY. NOT Max\'s quiet sidekick. Sometimes braver than Max. Curious and observant — notices things others miss. Has stuffed bunny (comfort object, not weakness).', voice: 'Confident, own rhythm — NOT meeker', struggle: 'Has her own way of seeing the world. Same struggles as any kid.', phrase: '"I can do it!" or "Watch THIS!"' },
+            { name: 'Koda', age: 35, role: 'Dad (Bandit-Inspired)', type: 'koda', emoji: '🐕', color: 'Gray/Navy', pajamas: 'Gray tee + navy plaid pants', visual: 'Amber-golden fur (darkest). Gray t-shirt + navy joggers.', personality: 'Playful, physically engaged — dives headfirst into games. Competitive streak. Uses silly "swears" (Oh, biscuits!). Takes games too seriously. Not perfect, learns alongside kids.', voice: 'Natural, warm (Bandit energy)', struggle: 'Enthusiasm gets him in trouble. Grand schemes backfire.', phrase: '"Oh, BISCUITS!" or "Well, THAT went sideways."' },
+            { name: 'Zoey', age: 33, role: 'Mom (Chilli-Inspired)', type: 'zoey', emoji: '🐕', color: 'Light Blue', pajamas: 'Blush pink sleep shirt', visual: 'Warm golden fur (mid-tone). Light blue top + charcoal leggings.', personality: 'Warm and grounded — the steady presence. CAN be silly — just in spurts. Knows when to let Koda\'s chaos play out vs. step in. Has her own relatable exhaustion.', voice: 'Gentle, grounded (Chilli energy)', struggle: 'Sometimes needs "20 minutes" — shown as valid.', phrase: '"Two things are true..." or "I\'m right here."' }
+        ];
+
+        // ============================================
+        // GOOD INSIDE FRAMEWORK
+        // ============================================
+        const framework = [
+            { number: 1, title: 'See the Good Inside', desc: 'Believe in inherent goodness. Challenges = growth opportunities. Behavior is a WINDOW, not identity.' },
+            { number: 2, title: 'Connection Before Correction', desc: 'Prioritize emotional connection. Strong bond → receptive to guidance. Connect FIRST, address behavior second.' },
+            { number: 3, title: 'Boundaries with Compassion', desc: 'Clear limits + validate feeling. "I won\'t let you hit" + "I know you\'re frustrated." Teach skills, not just punish.' },
+            { number: 4, title: 'Self-Regulation & Co-Regulation', desc: 'Parents manage emotions FIRST. Model resilience. Work through it TOGETHER.' },
+            { number: 5, title: 'Empathy & Validation', desc: 'Acknowledge experience as real. Feelings ALWAYS valid. "Two things are true."' },
+            { number: 6, title: 'Teach Skills, Don\'t Just Punish', desc: 'Discipline = teaching. Build skills for managing feelings. "YOU did that" — build self-efficacy.' },
+            { number: 7, title: 'Embrace Imperfection & Repair', desc: 'Repair > perfection. Ruptures teach lessons. "I\'m sorry. I\'m working on it too."' }
+        ];
+
+        // ============================================
+        // PARENT WINKS DATA
+        // ============================================
+        const winks = [
+            { category: 'Morning Chaos', items: [
+                { kid: 'Max can\'t find shoes', parent: '"Where ARE your shoes?!"' },
+                { kid: 'Ivy changes outfit 3 times', parent: '"We need to leave NOW"' },
+                { kid: 'Koda determined to be fast', parent: 'Parents know that\'s a lie' },
+                { kid: '"Leaving in 5 min!" (20 min later)', parent: 'Every. Single. Morning.' }
+            ]},
+            { category: 'Mealtime Battles', items: [
+                { kid: 'Max wants X, Ivy wants Y', parent: 'Impossible dinner negotiation' },
+                { kid: 'Kid asks for food, doesn\'t want it', parent: 'Rage suppression required' },
+                { kid: '"You LOVED this last week!"', parent: 'Betrayal of changing preferences' },
+                { kid: 'Koda eating leftovers at counter', parent: 'Parent dinner = whatever\'s left' }
+            ]},
+            { category: 'Bedtime Exhaustion', items: [
+                { kid: 'Koda yawning during story', parent: 'Every parent at 8pm' },
+                { kid: '"One more story!"', parent: 'Negotiation that never ends' },
+                { kid: 'Kid suddenly VERY thirsty', parent: 'Bedtime stall tactics' },
+                { kid: 'Koda falls asleep mid-story', parent: 'Who\'s putting who to bed?' },
+                { kid: 'Zoey: "I need 20 minutes."', parent: 'Universal parent plea' }
+            ]},
+            { category: 'Sibling Dynamics', items: [
+                { kid: '"She\'s LOOKING at me!"', parent: 'Absurdity of sibling complaints' },
+                { kid: '"He got MORE!" (same amount)', parent: 'The fairness obsession' },
+                { kid: 'Fighting → Friends → Fighting', parent: 'Emotional whiplash' },
+                { kid: '"That\'s about as fair as it gets"', parent: 'Phrase every parent says' }
+            ]},
+            { category: 'Koda\'s Silly Swears', items: [
+                { kid: '"Oh, BISCUITS."', parent: 'Frustration' },
+                { kid: '"Cheese and crackers!"', parent: 'Surprise' },
+                { kid: '"Well, THAT went sideways."', parent: 'Plans fail' }
+            ]}
         ];
 
         // ============================================
         // PLAYLIST DATA
         // ============================================
         const playlists = [
-            { name: 'Stories About Trying Again', casel: 'Self-Management', icon: '🔄', color: 'var(--accent-green)', keywords: 'trying again, not giving up, persistence for kids, resilience stories' },
-            { name: 'Stories About Self-Regulation', casel: 'Self-Management', icon: '🧠', color: 'var(--accent-blue)', keywords: 'self-regulation, impulse control, managing emotions, calming strategies' },
-            { name: 'Stories About Calming Down', casel: 'Self-Management', icon: '🧘', color: 'var(--accent-purple)', keywords: 'calming down, relaxation for kids, deep breathing, anger management kids' },
-            { name: 'Stories About Patience', casel: 'Self-Management', icon: '⏳', color: 'var(--accent-orange)', keywords: 'patience for kids, waiting stories, delayed gratification' },
-            { name: 'Stories About Big Feelings', casel: 'Self-Awareness', icon: '💗', color: 'var(--accent-pink)', keywords: 'big feelings, emotions for kids, feeling words, emotional vocabulary' },
-            { name: 'Stories About Sharing', casel: 'Relationship Skills', icon: '🤝', color: 'var(--accent-green)', keywords: 'sharing stories, taking turns, cooperation for kids' },
-            { name: 'Stories About Kindness', casel: 'Social Awareness', icon: '💛', color: 'var(--accent-orange)', keywords: 'kindness for kids, empathy stories, being kind, helping others' },
-            { name: 'Stories About Making Friends', casel: 'Relationship Skills', icon: '👫', color: 'var(--accent-blue)', keywords: 'making friends, friendship stories, social skills for kids' },
-            { name: 'Stories About Problem Solving', casel: 'Responsible Decision-Making', icon: '💡', color: 'var(--accent-purple)', keywords: 'problem solving for kids, thinking skills, making choices' },
-            { name: 'Stories About Being Brave', casel: 'Self-Management', icon: '🦁', color: 'var(--accent-orange)', keywords: 'being brave, overcoming fear, courage for kids, scary feelings' },
-            { name: 'Bedtime Stories', casel: 'Self-Management (Use-Case)', icon: '🌙', color: 'var(--accent-purple)', keywords: 'bedtime stories, calming stories, sleep stories for kids, relaxing' }
+            { name: 'Stories About Trying Again', casel: 'Self-Management', icon: '🔄', color: 'var(--accent-green)' },
+            { name: 'Stories About Self-Regulation', casel: 'Self-Management', icon: '🧠', color: 'var(--accent-blue)' },
+            { name: 'Stories About Calming Down', casel: 'Self-Management', icon: '🧘', color: 'var(--accent-purple)' },
+            { name: 'Stories About Patience', casel: 'Self-Management', icon: '⏳', color: 'var(--accent-orange)' },
+            { name: 'Stories About Big Feelings', casel: 'Self-Awareness', icon: '💗', color: 'var(--accent-pink)' },
+            { name: 'Stories About Sharing', casel: 'Relationship Skills', icon: '🤝', color: 'var(--accent-green)' },
+            { name: 'Stories About Kindness', casel: 'Social Awareness', icon: '💛', color: 'var(--accent-orange)' },
+            { name: 'Stories About Making Friends', casel: 'Relationship Skills', icon: '👫', color: 'var(--accent-blue)' },
+            { name: 'Stories About Problem Solving', casel: 'Decision-Making', icon: '💡', color: 'var(--accent-purple)' },
+            { name: 'Stories About Being Brave', casel: 'Self-Management', icon: '🦁', color: 'var(--accent-orange)' },
+            { name: 'Bedtime Stories', casel: 'Self-Management', icon: '🌙', color: 'var(--accent-purple)' }
         ];
 
         // ============================================
@@ -1184,14 +1222,26 @@
             { title: 'Channel Name', content: 'Stories That Help Kids Grow' },
             { title: 'Channel Handle', content: '@StoriesThatHelpKidsGrow' },
             { title: 'Channel Tagline', content: 'Calm, brave stories for little hearts' },
+            { title: 'Intro Script (say at start)', content: `Hey friends! I'm Stephen.
+
+Today we're reading [BOOK TITLE].
+
+Can you find something cozy to sit on? A pillow? A blanket? Got it? Okay, let's go!` },
+            { title: 'Outro Script (say at end)', content: `Great job! You did it!
+
+If you liked this story, can you hit that thumbs up button for me? And if you want to watch more stories, hit subscribe and that little bell so you don't miss the next one.
+
+I'll see you in the next story. Bye friends!` },
             { title: 'Channel Description', content: `Welcome to Stories That Help Kids Grow! 🌱
 
-I'm Stephen, and I read stories that help children develop important social and emotional skills - like trying again when things are hard, calming down when feelings get big, and being patient when waiting is tough.
+I'm Stephen, and I read original animated stories featuring The Sunny Family — Max, Ivy, and their parents Koda and Zoey — that help children develop important social and emotional skills.
 
 Each story is designed to:
 ✨ Help kids understand their emotions
 ✨ Build resilience and self-regulation
 ✨ Create calm, connected moments with your child
+
+Built on Good Inside parenting principles. Bluey-inspired humor. Real parent moments.
 
 Perfect for ages 2-7. Great for bedtime, quiet time, or anytime your little one needs a moment to grow.
 
@@ -1199,183 +1249,67 @@ New stories every week!
 
 Subscribe and hit the bell so you never miss a story. 🔔
 
-#StoriesThatHelpKidsGrow #SELforKids #ChildrensBooks #BedtimeStories #EmotionalIntelligence` },
-            { title: 'About Section', content: `Hi, I'm Stephen! 👋
-
-I'm a dad of three with a background in early childhood experience design. I spent years creating programming for thousands of families, and now I'm bringing that expertise to stories that help kids develop social-emotional skills.
-
-Every story here is rooted in child development research and designed to help your child:
-• Understand and manage their emotions
-• Build resilience when things are hard
-• Develop empathy and social skills
-• Create healthy habits for life
-
-I believe screen time can be meaningful time. These stories are made to watch together - pause, discuss, and grow.
-
-Questions? Ideas for stories? Drop a comment - I read them all!
-
-Connect with me:
-📱 @storiesthathelpkidsgrow (Instagram)
-
-With love and stories,
-Stephen` },
-            { title: 'Video Title Format', content: '[Character Name] | [SEL Skill] | Stories That Help Kids Grow' },
-            { title: 'Example Title 1', content: 'Captain Pillow | Trying Again | Stories That Help Kids Grow' },
-            { title: 'Example Title 2', content: 'Max Means To | Self-Regulation | Stories That Help Kids Grow' },
-            { title: 'Example Title 3', content: 'Star Train | Calming Down | Stories That Help Kids Grow' },
-            { title: 'Video Description Template', content: `[Brief story summary - 2 sentences]
-
-This story helps kids learn about [SEL skill] in a gentle, engaging way.
-
-📚 STORY DETAILS:
-• Skill Focus: [Trying Again / Self-Regulation / Calming Down / etc.]
-• Best for ages: 2-7
-• Read time: [X] minutes
-
-⏱️ TIMESTAMPS:
-0:00 - Intro
-[X:XX] - Story begins
-[X:XX] - Key moment
-[X:XX] - Ending
-
-🌱 MORE STORIES THAT HELP KIDS GROW:
-• [Playlist link]
-• [Related video link]
-
-👍 If this story helped your little one, please LIKE and SUBSCRIBE!
-
-#StoriesThatHelpKidsGrow #[SELSkill] #ChildrensBooks #SEL #BedtimeStories` }
-        ];
-
-        // ============================================
-        // SEL FRAMEWORK DATA
-        // ============================================
-        const selFramework = [
-            { name: 'Self-Awareness', color: 'var(--accent-blue)', definition: 'Recognizing one\'s emotions, thoughts, and values', skills: 'Identifying emotions, accurate self-perception, recognizing strengths, self-confidence, self-efficacy', stories: 'Bunny\'s Big Feelings Basket, Owl\'s Worry Cloud', keywords: 'feelings for kids, emotions vocabulary, understanding feelings, self-esteem kids' },
-            { name: 'Self-Management', color: 'var(--accent-green)', definition: 'Regulating emotions, thoughts, and behaviors', skills: 'Impulse control, stress management, self-discipline, goal-setting, organizational skills', stories: 'Max Means To, Captain Pillow, Star Train, Bear Learns to Breathe, Turtle Takes His Time', keywords: 'calming down, anger management kids, self-control, patience, trying again, not giving up' },
-            { name: 'Social Awareness', color: 'var(--accent-purple)', definition: 'Taking the perspective of others, showing empathy', skills: 'Perspective-taking, empathy, appreciating diversity, respect for others', stories: 'The Kindness Caterpillar, future empathy stories', keywords: 'kindness for kids, empathy stories, understanding others, being kind' },
-            { name: 'Relationship Skills', color: 'var(--accent-orange)', definition: 'Establishing positive relationships, working in teams', skills: 'Communication, social engagement, building relationships, teamwork, conflict resolution', stories: 'The Sharing Squirrels, Fox Finds a Friend', keywords: 'sharing, making friends, taking turns, cooperation, playing together' },
-            { name: 'Responsible Decision-Making', color: 'var(--accent-pink)', definition: 'Making constructive choices about behavior', skills: 'Problem identification, analyzing situations, solving problems, ethical responsibility', stories: 'Future problem-solving stories', keywords: 'making good choices, problem solving for kids, thinking before acting' }
+#StoriesThatHelpKidsGrow #SELforKids #TheSunnyFamily #BedtimeStories` },
+            { title: 'Video Title Format', content: 'Story Title | SEL Skill | Stories That Help Kids Grow' },
+            { title: 'Example Title (Pilot)', content: 'The Red Truck | Sharing | Stories That Help Kids Grow' }
         ];
 
         // ============================================
         // CLOUD SYNC FUNCTIONS
         // ============================================
         async function createBin() {
-            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
-                syncStatus = 'local';
-                updateSyncIndicator();
-                return false;
-            }
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) { syncStatus = 'local'; updateSyncIndicator(); return false; }
             try {
                 const response = await fetch('https://api.jsonbin.io/v3/b', {
                     method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json', 
-                        'X-Master-Key': JSONBIN_KEY, 
-                        'X-Bin-Name': 'stories-that-help-kids-grow-data' 
-                    },
+                    headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY, 'X-Bin-Name': 'sthkg-sunny-family-data' },
                     body: JSON.stringify(appData)
                 });
-                if (!response.ok) throw new Error('Failed to create bin');
+                if (!response.ok) throw new Error('Failed');
                 const result = await response.json();
                 binId = result.metadata.id;
                 localStorage.setItem(BIN_ID_KEY, binId);
                 syncStatus = 'synced';
-                lastSyncTime = new Date();
                 updateSyncIndicator();
                 return true;
-            } catch (err) { 
-                console.error('Create bin failed:', err); 
-                syncStatus = 'error';
-                updateSyncIndicator();
-                return false; 
-            }
+            } catch (err) { syncStatus = 'error'; updateSyncIndicator(); return false; }
         }
 
         async function loadFromCloud() {
             const local = localStorage.getItem(STORAGE_KEY);
-            if (local) {
-                appData = { ...defaultData, ...JSON.parse(local) };
-            }
-            
-            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
-                syncStatus = 'local';
-                updateSyncIndicator();
-                return;
-            }
-
-            if (!binId) {
-                syncStatus = 'local';
-                updateSyncIndicator();
-                return;
-            }
-
-            syncStatus = 'syncing';
-            updateSyncIndicator();
-
+            if (local) appData = { ...defaultData, ...JSON.parse(local) };
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) { syncStatus = 'local'; updateSyncIndicator(); return; }
+            if (!binId) { syncStatus = 'local'; updateSyncIndicator(); return; }
+            syncStatus = 'syncing'; updateSyncIndicator();
             try {
-                const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
-                    headers: { 'X-Master-Key': JSONBIN_KEY }
-                });
-                if (!response.ok) throw new Error('Failed to load');
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, { headers: { 'X-Master-Key': JSONBIN_KEY } });
+                if (!response.ok) throw new Error('Failed');
                 const result = await response.json();
-                const cloudData = result.record;
-                
-                if (cloudData && cloudData.lastUpdated) {
-                    const cloudTime = new Date(cloudData.lastUpdated);
-                    const localTime = appData.lastUpdated ? new Date(appData.lastUpdated) : new Date(0);
-                    
-                    if (cloudTime > localTime) {
-                        appData = { ...defaultData, ...cloudData };
-                        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-                    }
+                if (result.record?.lastUpdated && new Date(result.record.lastUpdated) > new Date(appData.lastUpdated || 0)) {
+                    appData = { ...defaultData, ...result.record };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
                 }
-                
                 syncStatus = 'synced';
-                lastSyncTime = new Date();
-            } catch (err) {
-                console.error('Load from cloud failed:', err);
-                syncStatus = 'error';
-            }
+            } catch (err) { syncStatus = 'error'; }
             updateSyncIndicator();
         }
 
         async function saveToCloud() {
             appData.lastUpdated = new Date().toISOString();
             localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-            
-            if (JSONBIN_KEY.includes('YOUR_API_KEY')) {
-                return;
-            }
-
-            if (!binId) {
-                await createBin();
-                return;
-            }
-
+            if (JSONBIN_KEY.includes('YOUR_API_KEY')) return;
+            if (!binId) { await createBin(); return; }
             if (syncTimeout) clearTimeout(syncTimeout);
-            
             syncTimeout = setTimeout(async () => {
-                syncStatus = 'syncing';
-                updateSyncIndicator();
-                
+                syncStatus = 'syncing'; updateSyncIndicator();
                 try {
-                    const response = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+                    await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
                         method: 'PUT',
-                        headers: { 
-                            'Content-Type': 'application/json', 
-                            'X-Master-Key': JSONBIN_KEY 
-                        },
+                        headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY },
                         body: JSON.stringify(appData)
                     });
-                    if (!response.ok) throw new Error('Failed to save');
                     syncStatus = 'synced';
-                    lastSyncTime = new Date();
-                } catch (err) {
-                    console.error('Save to cloud failed:', err);
-                    syncStatus = 'error';
-                }
+                } catch (err) { syncStatus = 'error'; }
                 updateSyncIndicator();
             }, 1000);
         }
@@ -1383,28 +1317,13 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
         function updateSyncIndicator() {
             const dot = document.getElementById('sync-dot');
             const text = document.getElementById('sync-text');
-            
             dot.className = 'sync-dot';
-            
             switch (syncStatus) {
-                case 'synced':
-                    dot.classList.add('synced');
-                    text.textContent = 'Synced to Cloud';
-                    break;
-                case 'syncing':
-                    dot.classList.add('syncing');
-                    text.textContent = 'Syncing...';
-                    break;
-                case 'error':
-                    dot.classList.add('error');
-                    text.textContent = 'Sync Error';
-                    break;
-                case 'local':
-                    dot.classList.add('local');
-                    text.textContent = 'Local Only';
-                    break;
-                default:
-                    text.textContent = 'Connecting...';
+                case 'synced': text.textContent = 'Synced to Cloud'; break;
+                case 'syncing': dot.classList.add('syncing'); text.textContent = 'Syncing...'; break;
+                case 'error': dot.classList.add('error'); text.textContent = 'Sync Error'; break;
+                case 'local': dot.classList.add('local'); text.textContent = 'Local Only'; break;
+                default: text.textContent = 'Connecting...';
             }
         }
 
@@ -1418,21 +1337,11 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
                 const totalTasks = phase.tasks.length;
                 const progress = Math.round((completedTasks / totalTasks) * 100);
                 const status = progress === 100 ? 'complete' : progress > 0 ? 'in-progress' : 'pending';
-                
-                return `
-                    <div class="phase-card ${progress === 100 ? 'complete' : ''}" onclick="scrollToPhase('${phase.id}')">
-                        <div class="phase-header">
-                            <span class="phase-number">Phase ${phase.number}</span>
-                            <span class="phase-status ${status}">${status.replace('-', ' ')}</span>
-                        </div>
-                        <div class="phase-title">${phase.name}</div>
-                        <div class="phase-time">⏱️ ${phase.time}</div>
-                        <div class="phase-progress">
-                            <div class="phase-progress-fill" style="width: ${progress}%"></div>
-                        </div>
-                        <div class="phase-tasks">${completedTasks}/${totalTasks} tasks complete</div>
-                    </div>
-                `;
+                return `<div class="phase-card ${progress === 100 ? 'complete' : ''}" onclick="scrollToPhase('${phase.id}')">
+                    <div class="phase-header"><span class="phase-number">Phase ${phase.number}</span><span class="phase-status ${status}">${status.replace('-', ' ')}</span></div>
+                    <div class="phase-title">${phase.name}</div><div class="phase-time">⏱️ ${phase.time}</div>
+                    <div class="phase-progress"><div class="phase-progress-fill" style="width: ${progress}%"></div></div>
+                    <div class="phase-tasks">${completedTasks}/${totalTasks} tasks complete</div></div>`;
             }).join('');
         }
 
@@ -1442,67 +1351,35 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
                 <div id="${phase.id}" style="margin-bottom: 32px;">
                     <div style="padding: 16px 20px; background: var(--bg-primary); border-radius: 12px; margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Phase ${phase.number}</div>
-                                <div style="font-size: 18px; font-weight: 700;">${phase.name}</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div style="font-size: 14px; color: var(--accent-blue);">⏱️ ${phase.time}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="task-list">
-                        ${phase.tasks.map(task => {
-                            const isComplete = appData.tasks[task.id];
-                            return `
-                                <li class="task-item ${isComplete ? 'completed' : ''}">
-                                    <div class="task-checkbox ${isComplete ? 'checked' : ''}" onclick="toggleTask('${task.id}')"></div>
-                                    <div class="task-content">
-                                        <div class="task-title">${task.title}</div>
-                                        <div class="task-meta">
-                                            <span class="task-time">${task.time}</span>
-                                            <span class="task-notes">${task.notes}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            `;
-                        }).join('')}
-                    </ul>
-                </div>
-            `).join('');
+                            <div><div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Phase ${phase.number}</div>
+                            <div style="font-size: 18px; font-weight: 700;">${phase.name}</div></div>
+                            <div style="font-size: 14px; color: var(--accent-blue);">⏱️ ${phase.time}</div></div></div>
+                    <ul class="task-list">${phase.tasks.map(task => {
+                        const isComplete = appData.tasks[task.id];
+                        return `<li class="task-item ${isComplete ? 'completed' : ''}">
+                            <div class="task-checkbox ${isComplete ? 'checked' : ''}" onclick="toggleTask('${task.id}')"></div>
+                            <div class="task-content"><div class="task-title">${task.title}</div>
+                            <div class="task-meta"><span class="task-time">${task.time}</span><span class="task-notes">${task.notes}</span></div></div></li>`;
+                    }).join('')}</ul></div>`).join('');
         }
 
         function renderStories() {
             const container = document.getElementById('story-grid');
             container.innerHTML = stories.map(story => {
                 const status = appData.stories[story.id] || story.defaultStatus;
-                return `
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-number">${story.number}</div>
-                            <span class="story-priority ${story.priority}">${story.priority}</span>
-                        </div>
-                        <div class="story-title">${story.title}</div>
-                        <div class="story-character">
-                            ${story.character}
-                            <span class="character-type ${story.type}">${story.type}</span>
-                        </div>
-                        <div class="story-skill">
-                            <div>
-                                <div class="story-skill-label">SEL Skill</div>
-                                <div class="story-skill-value">${story.skill}</div>
-                            </div>
-                        </div>
-                        <select class="story-status-select" onchange="updateStoryStatus('${story.id}', this.value)">
-                            <option value="idea" ${status === 'idea' ? 'selected' : ''}>💭 Idea Only</option>
-                            <option value="script" ${status === 'script' ? 'selected' : ''}>📝 Needs Script</option>
-                            <option value="ready" ${status === 'ready' ? 'selected' : ''}>✅ Ready to Film</option>
-                            <option value="filmed" ${status === 'filmed' ? 'selected' : ''}>🎬 Filmed</option>
-                            <option value="edited" ${status === 'edited' ? 'selected' : ''}>✂️ Edited</option>
-                            <option value="published" ${status === 'published' ? 'selected' : ''}>🚀 Published</option>
-                        </select>
-                    </div>
-                `;
+                return `<div class="story-card">
+                    <div class="story-header"><div class="story-number">${story.number}</div><span class="story-priority ${story.priority}">${story.priority}</span></div>
+                    <div class="story-title">${story.title}</div>
+                    <div class="story-character">${story.character} <span class="character-badge ${story.charClass}">${story.charClass === 'family' ? 'Family' : story.character.split(' ')[0]}</span></div>
+                    <div class="story-skill"><div><div class="story-skill-label">SEL Skill</div><div class="story-skill-value">${story.skill}</div></div></div>
+                    <select class="story-status-select" onchange="updateStoryStatus('${story.id}', this.value)">
+                        <option value="idea" ${status === 'idea' ? 'selected' : ''}>💭 Idea Only</option>
+                        <option value="script" ${status === 'script' ? 'selected' : ''}>📝 Needs Script</option>
+                        <option value="ready" ${status === 'ready' ? 'selected' : ''}>✅ Ready to Film</option>
+                        <option value="filmed" ${status === 'filmed' ? 'selected' : ''}>🎬 Filmed</option>
+                        <option value="edited" ${status === 'edited' ? 'selected' : ''}>✂️ Edited</option>
+                        <option value="published" ${status === 'published' ? 'selected' : ''}>🚀 Published</option>
+                    </select></div>`;
             }).join('');
         }
 
@@ -1512,52 +1389,41 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
                 <div class="character-card">
                     <div class="character-header">
                         <div class="character-avatar ${char.type}">${char.emoji}</div>
-                        <div>
-                            <div class="character-name">${char.name}</div>
-                            <div class="character-type-label">${char.type.charAt(0).toUpperCase() + char.type.slice(1)} Character</div>
-                        </div>
-                    </div>
-                    <div class="character-section">
-                        <div class="character-section-title">Visual Description</div>
-                        <div class="character-section-content">${char.visual}</div>
-                    </div>
-                    <div class="character-section">
-                        <div class="character-section-title">Personality</div>
-                        <div class="character-section-content">${char.personality}</div>
-                    </div>
-                    <div class="character-section">
-                        <div class="character-section-title">Voice/Tone</div>
-                        <div class="character-section-content">${char.voice}</div>
-                    </div>
-                    <div class="character-section">
-                        <div class="character-section-title">Core Struggle</div>
-                        <div class="character-section-content">${char.struggle}</div>
-                    </div>
-                    <div class="character-section">
-                        <div class="character-section-title">Signature Phrase</div>
-                        <div class="character-phrase">${char.phrase}</div>
-                    </div>
-                </div>
-            `).join('');
+                        <div><div class="character-name">${char.name} <span style="font-size: 14px; color: var(--text-muted);">(${char.age})</span></div>
+                        <div class="character-type-label">${char.role}</div></div></div>
+                    <div class="character-section"><div class="character-section-title">Visual / Signature Color: ${char.color}</div><div class="character-section-content">${char.visual}</div></div>
+                    <div class="character-section"><div class="character-section-title">Personality</div><div class="character-section-content">${char.personality}</div></div>
+                    <div class="character-section"><div class="character-section-title">Voice/Tone</div><div class="character-section-content">${char.voice}</div></div>
+                    <div class="character-section"><div class="character-section-title">Core Struggle</div><div class="character-section-content">${char.struggle}</div></div>
+                    <div class="character-section"><div class="character-section-title">Signature Phrase</div><div class="character-phrase">${char.phrase}</div></div></div>`).join('');
+        }
+
+        function renderFramework() {
+            const container = document.getElementById('framework-grid');
+            container.innerHTML = framework.map(f => `
+                <div class="framework-card">
+                    <div class="framework-number">${f.number}</div>
+                    <div class="framework-title">${f.title}</div>
+                    <div class="framework-desc">${f.desc}</div></div>`).join('');
+        }
+
+        function renderWinks() {
+            const container = document.getElementById('winks-container');
+            container.innerHTML = winks.map(w => `
+                <div class="card">
+                    <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--accent-purple);">${w.category}</h3>
+                    <table class="wink-table"><thead><tr><th>What Kids See</th><th>What Parents Feel</th></tr></thead>
+                    <tbody>${w.items.map(i => `<tr><td>${i.kid}</td><td>${i.parent}</td></tr>`).join('')}</tbody></table></div>`).join('');
         }
 
         function renderPlaylists() {
             const container = document.getElementById('playlist-grid');
-            container.innerHTML = playlists.map(playlist => {
-                const count = stories.filter(s => s.playlist === playlist.name).length;
-                return `
-                    <div class="playlist-card">
-                        <div class="playlist-icon" style="background: ${playlist.color}20; color: ${playlist.color};">${playlist.icon}</div>
-                        <div class="playlist-info">
-                            <div class="playlist-name">${playlist.name}</div>
-                            <div class="playlist-casel">${playlist.casel}</div>
-                        </div>
-                        <div class="playlist-count">
-                            <div class="playlist-count-value">${count}</div>
-                            <div class="playlist-count-label">Stories</div>
-                        </div>
-                    </div>
-                `;
+            container.innerHTML = playlists.map(p => {
+                const count = stories.filter(s => s.playlist === p.name).length;
+                return `<div class="playlist-card">
+                    <div class="playlist-icon" style="background: ${p.color}20; color: ${p.color};">${p.icon}</div>
+                    <div class="playlist-info"><div class="playlist-name">${p.name}</div><div class="playlist-casel">${p.casel}</div></div>
+                    <div class="playlist-count"><div class="playlist-count-value">${count}</div><div class="playlist-count-label">Stories</div></div></div>`;
             }).join('');
         }
 
@@ -1565,39 +1431,8 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
             const container = document.getElementById('copy-container');
             container.innerHTML = channelCopy.map((item, idx) => `
                 <div class="copy-section">
-                    <div class="copy-header">
-                        <span class="copy-title">${item.title}</span>
-                        <button class="copy-btn" onclick="copyText(${idx}, this)">Copy</button>
-                    </div>
-                    <div class="copy-content">${item.content}</div>
-                </div>
-            `).join('');
-        }
-
-        function renderSEL() {
-            const container = document.getElementById('sel-container');
-            container.innerHTML = selFramework.map(sel => `
-                <div class="card" style="border-left: 4px solid ${sel.color};">
-                    <div class="card-header">
-                        <div class="card-title" style="color: ${sel.color};">${sel.name}</div>
-                    </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 15px;">${sel.definition}</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
-                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
-                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Skills Included</div>
-                            <div style="font-size: 13px; color: var(--text-secondary);">${sel.skills}</div>
-                        </div>
-                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
-                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Your Stories</div>
-                            <div style="font-size: 13px; color: ${sel.color};">${sel.stories}</div>
-                        </div>
-                        <div style="background: var(--bg-primary); padding: 16px; border-radius: 12px;">
-                            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Search Keywords</div>
-                            <div style="font-size: 13px; color: var(--text-secondary);">${sel.keywords}</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
+                    <div class="copy-header"><span class="copy-title">${item.title}</span><button class="copy-btn" onclick="copyText(${idx}, this)">Copy</button></div>
+                    <div class="copy-content">${item.content}</div></div>`).join('');
         }
 
         // ============================================
@@ -1616,22 +1451,11 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
             document.getElementById('overall-progress-value').textContent = progress + '%';
             document.getElementById('overall-progress-bar').style.width = progress + '%';
             
-            // Calculate remaining hours
             const remainingTasks = totalTasks - completedTasks;
-            const avgMinutesPerTask = 22; // ~16 hours / 43 tasks
-            const remainingHours = Math.ceil((remainingTasks * avgMinutesPerTask) / 60);
+            const remainingHours = Math.ceil((remainingTasks * 26) / 60);
             document.getElementById('stat-hours').textContent = remainingHours + 'h';
             
-            // Videos ready (phases 4-6 related)
-            const videoTasks = ['t24', 't25', 't26', 't29', 't30', 't31', 't37', 't38', 't39'];
-            const videosComplete = videoTasks.filter(t => appData.tasks[t]).length;
-            document.getElementById('stat-videos').textContent = `${Math.floor(videosComplete / 3)}/3`;
-            
-            // Stories ready
-            const readyStories = stories.filter(s => {
-                const status = appData.stories[s.id] || s.defaultStatus;
-                return ['ready', 'filmed', 'edited', 'published'].includes(status);
-            }).length;
+            const readyStories = stories.filter(s => ['ready', 'filmed', 'edited', 'published'].includes(appData.stories[s.id] || s.defaultStatus)).length;
             document.getElementById('stories-ready').textContent = `${readyStories}/10`;
             document.getElementById('stat-stories').textContent = `${readyStories}/10`;
         }
@@ -1651,49 +1475,39 @@ This story helps kids learn about [SEL skill] in a gentle, engaging way.
         }
 
         function copyText(idx, btn) {
-            const text = channelCopy[idx].content;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(channelCopy[idx].content).then(() => {
                 btn.textContent = 'Copied!';
                 btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
+                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
             });
         }
 
         function scrollToPhase(phaseId) {
             document.querySelector('[data-tab="checklist"]').click();
-            setTimeout(() => {
-                document.getElementById(phaseId).scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            setTimeout(() => document.getElementById(phaseId).scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
         }
 
-        // ============================================
-        // TAB NAVIGATION
-        // ============================================
+        // Tab Navigation
         document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
                 tab.classList.add('active');
                 document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
             });
         });
 
-        // ============================================
-        // INITIALIZE
-        // ============================================
+        // Initialize
         async function init() {
             await loadFromCloud();
             renderPhases();
             renderChecklist();
             renderStories();
             renderCharacters();
+            renderFramework();
+            renderWinks();
             renderPlaylists();
             renderCopy();
-            renderSEL();
             updateStats();
         }
 
